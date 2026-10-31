@@ -93,7 +93,19 @@ h2{font-size:1rem;margin:14px 0 6px}
 /* ícones Som/Voz (celular) e menu compacto durante a partida */
 .ic,.x,#mn,#cb{display:none}.ic{pointer-events:none}.ib[aria-pressed=false] .x{display:inline}.ib[aria-pressed=false] .w{display:none}.ib[aria-pressed=false] .ic{opacity:.5}
 @media(max-width:700px),(max-height:500px){
- #q{display:none}#cb{display:inline-flex}
+ #q{display:none}
+ #cb{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  align-self:center;
+  flex:0 0 auto;
+  white-space:nowrap;
+  line-height:1.2;
+  min-height:38px;
+  padding:4px 11px;
+  vertical-align:middle;
+ }
  .ib .tx{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
  nav .ib{display:inline-flex;align-items:center;justify-content:center;min-width:42px;padding:0}.ib .ic{display:block}
  body.ing{display:grid;grid-template-columns:auto 1fr auto auto;grid-template-rows:auto auto auto minmax(0,1fr);column-gap:6px}
@@ -113,7 +125,7 @@ h2{font-size:1rem;margin:14px 0 6px}
 </head>
 <body data-t="kids">
 <header><button id="mn" aria-label="Menu" aria-expanded="false" aria-controls="tb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><h1>Jogo da Memória<small>Desafio dos Pares</small></h1>
-<nav id="tb" aria-label="Opções"><button data-t="kids" aria-pressed="true">Infantil</button><button data-t="day" aria-pressed="false">Dia</button><button data-t="night" aria-pressed="false">Noite</button><button id="snd" class="ib" aria-pressed="true"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5l4.5 4v-13l-4.5 4z"/><path class="w" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="x" d="M16.5 9.5l5 5M21.5 9.5l-5 5"/></svg><span class="tx">Som: sim</span></button><button id="vz" class="ib" aria-pressed="true" title="Voz que fala o nome ao achar o par"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(-1 1.6) scale(.85)"><path d="M2.5 12c3-3.5 5.5-4.5 9.5-2.5 4-2 6.5-1 9.5 2.5-3 5-6 6.5-9.5 6.5S5.5 17 2.5 12z"/><path d="M3 12.2h18"/></g><path class="w" d="M19 9.5a3.5 3.5 0 0 1 0 5M21.5 7.5a7 7 0 0 1 0 9"/><path class="x" d="M18.5 9.5l4.5 5M23 9.5l-4.5 5"/></svg><span class="tx">Voz: sim</span></button><button id="pb">Placar</button><button id="hp">Ajuda</button><button id="cb"> Créditos </button></nav></header>
+<nav id="tb" aria-label="Opções"><button data-t="kids" aria-pressed="true">Infantil</button><button data-t="day" aria-pressed="false">Dia</button><button data-t="night" aria-pressed="false">Noite</button><button id="snd" class="ib" aria-pressed="true"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5l4.5 4v-13l-4.5 4z"/><path class="w" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="x" d="M16.5 9.5l5 5M21.5 9.5l-5 5"/></svg><span class="tx">Som: sim</span></button><button id="vz" class="ib" aria-pressed="true" title="Voz que fala o nome ao achar o par"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(-1 1.6) scale(.85)"><path d="M2.5 12c3-3.5 5.5-4.5 9.5-2.5 4-2 6.5-1 9.5 2.5-3 5-6 6.5-9.5 6.5S5.5 17 2.5 12z"/><path d="M3 12.2h18"/></g><path class="w" d="M19 9.5a3.5 3.5 0 0 1 0 5M21.5 7.5a7 7 0 0 1 0 9"/><path class="x" d="M18.5 9.5l4.5 5M23 9.5l-4.5 5"/></svg><span class="tx">Voz: sim</span></button><button id="pb">Placar</button><button id="hp">Ajuda</button><button id="cb">Créditos</button></nav></header>
 <noscript><p style="text-align:center;padding:16px">O Jogo da Memória Educativo precisa do JavaScript ativado para funcionar. Ative-o no navegador e recarregue a página.</p></noscript>
 <main id="setup"><h2>Categoria</h2><div id="cats"></div><h2>Quantos pares?</h2><div id="nums"></div>
 <p id="pre" aria-live="polite"></p><p id="rec"></p>

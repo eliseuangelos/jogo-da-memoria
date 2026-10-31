@@ -9,6 +9,7 @@
 :root{--fg:#3b2f4a;--card:#fff;--back:#7c4dff;--bq:#fff;--ol:#4a3b5c;--ac:#e8336f;--ac2:#2bb3ff;--on:#fff;--ok:#12a066;--sh:0 4px 0 #3b2f4a2e;--r:16px;--bgi:radial-gradient(circle at 8% 12%,#ffe58f 0 70px,#0000 72px),radial-gradient(circle at 94% 78%,#a5deff 0 100px,#0000 102px),linear-gradient(160deg,#fff4d6,#ffd9ec)}
 body[data-t=day]{--fg:#1f2933;--back:#dbe3ec;--bq:#64748b;--ol:#475569;--ac:#2563eb;--ac2:#64748b;--sh:0 1px 4px #0003;--r:10px;--bgi:linear-gradient(#f8fafc,#eef2f7)}
 body[data-t=night]{--fg:#e5e9f2;--card:#2b303b;--back:#3a4152;--bq:#94a3b8;--ol:#cbd5e1;--ac:#22d3ee;--ac2:#a78bfa;--on:#0b1220;--ok:#34d399;--sh:0 2px 8px #0008;--r:10px;--bgi:linear-gradient(#0f1218,#1a1f2b)}
+body[data-t=night] .fr{--card:#fff;--ol:#4a3b5c;--ok:#12a066;color:#3b2f4a}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html,body{height:100%;margin:0}
@@ -71,7 +72,7 @@ h2{font-size:1rem;margin:14px 0 6px}
 </head>
 <body data-t="kids">
 <header><h1>Jogo da Memória<small>Desafio dos Pares</small></h1>
-<nav id="tb" aria-label="Opções"><button data-t="kids" aria-pressed="true">Infantil</button><button data-t="day" aria-pressed="false">Dia</button><button data-t="night" aria-pressed="false">Noite</button><button id="snd" aria-pressed="true">Som: sim</button><button id="pb">Placar</button><button id="hp">Ajuda</button></nav></header>
+<nav id="tb" aria-label="Opções"><button data-t="kids" aria-pressed="true">Infantil</button><button data-t="day" aria-pressed="false">Dia</button><button data-t="night" aria-pressed="false">Noite</button><button id="snd" aria-pressed="true">Som: sim</button><button id="vz" aria-pressed="true" title="Voz que fala o nome ao achar o par">Voz: sim</button><button id="pb">Placar</button><button id="hp">Ajuda</button></nav></header>
 <main id="setup"><h2>Categoria</h2><div id="cats"></div><h2>Quantos pares?</h2><div id="nums"></div>
 <p id="pre" aria-live="polite"></p><p id="rec"></p>
 <button id="go" class="pri">JOGAR</button> <button id="clr">Apagar recordes</button></main>
@@ -84,7 +85,7 @@ h2{font-size:1rem;margin:14px 0 6px}
 <div id="live" class="sr" aria-live="polite"></div>
 <div id="win" class="ov" hidden role="dialog" aria-modal="true" aria-labelledby="wt"><div class="pn"><h2 id="wt">Parabéns, você venceu!</h2><p id="ws"></p><form id="nf" autocomplete="off"><label>Seu nome para o placar<br><input id="nm" maxlength="16" placeholder="Digite seu nome"></label><br><button class="pri">SALVAR</button></form><p id="ns" aria-live="polite"></p><div class="bt"><button class="pri" id="ng2">NOVO JOGO</button><button data-x>FECHAR</button></div></div></div>
 <div id="pl" class="ov" hidden role="dialog" aria-modal="true" aria-label="Placar"><div class="pn"><h2>Placar</h2><select id="ps" aria-label="Quantidade de pares"></select><div id="pt"></div><p><small>Ordem: menor tempo, depois menos tentativas. Partidas com REVELAR não entram.</small></p><div class="bt"><button id="pc">Limpar placar</button><button class="pri" data-x>Fechar</button></div></div></div>
-<div id="help" class="ov" hidden role="dialog" aria-modal="true" aria-label="Como jogar"><div class="pn"><h2>Como jogar</h2><ol><li>Escolha a quantidade de pares.</li><li>Clique em uma carta para revelar o desenho.</li><li>Encontre outra carta igual.</li><li>Use REVELAR quando precisar de ajuda (partidas com REVELAR não entram no placar).</li><li>Complete todos os pares para vencer!</li></ol><button class="pri" data-x>Entendi</button></div></div>
+<div id="help" class="ov" hidden role="dialog" aria-modal="true" aria-label="Como jogar"><div class="pn"><h2>Como jogar</h2><ol><li>Escolha a quantidade de pares.</li><li>Clique em uma carta para revelar o desenho.</li><li>Encontre outra carta igual.</li><li>Use REVELAR quando precisar de ajuda (partidas com REVELAR não entram no placar).</li><li>A voz fala o nome ao achar o par (dá para desligar no botão Voz).</li><li>Complete todos os pares para vencer!</li></ol><button class="pri" data-x>Entendi</button></div></div>
 <div id="cr" class="ov" hidden role="dialog" aria-modal="true" aria-label="Créditos"><div class="pn"><p>Desenvolvido por:<br><b>eliseuangelos</b></p><p><a href="https://eliseuangelos.github.io/eliseuangelos/" target="_blank" rel="noopener">https://eliseuangelos.github.io/eliseuangelos/</a></p><button class="pri" data-x>Fechar</button></div></div>
 <button id="q" aria-label="Créditos">?</button>
 <script>
@@ -171,8 +172,14 @@ const DR=[
 ['Coroa',P('M16 96V40l28 28 16-40 16 40 28-28v56z','#ffd93d')+A('M26 56v34',3,'#fff3b0')+R(16,86,88,18,'#ffb300',5)+D([[34,95],[60,95],[86,95]],5,'#ef4444',1)+D([[47,95],[73,95]],2.4,'#fff')+P('M60 60l5 6-5 6-5-6z','#42a5f5')+D([[16,38],[60,24],[104,38]],6,'#ffd93d',1)+D([[14,36],[58,22],[102,36]],1.8,'#fff')],
 ['Coração',P('M60 104C20 76 10 48 28 32c14-12 28-4 32 8c4-12 18-20 32-8c18 16 8 44-32 72z','#ef476f')+S('M92 34c6 14 2 34-32 70 26-16 36-40 32-70z','#a3123a',.3)+A('M28 48c-1-8 4-14 11-15',4,'#fff')+D([[46,31]],2.4,'#fff')]
 ];
+/* ===== Letras (A–Z) e Números (0–9, 10, 20 … 100; nome por extenso na legenda) ===== */
+const TX=(t,x,y,z)=>`<text x="${x}" y="${y}" font-size="${z}" font-weight="900" text-anchor="middle" fill="#fff" stroke="currentColor" stroke-width="${z>40?6:5}" paint-order="stroke" font-family="'Arial Rounded MT Bold','Trebuchet MS','Segoe UI',Arial,sans-serif">${t}</text>`,
+PAL=['#ef476f','#ff8c1a','#2bb673','#1e90ff','#8e5bd6','#e83e9c','#17a2b8','#e5533d'],
+TL=i=>R(10,10,100,100,PAL[i%8],24)+A('M22 36q0-14 14-14',4,'#fff');
+'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach((l,i)=>DR.push(['Letra '+l,TL(i)+TX(l,50,80,66)+TX(l.toLowerCase(),92,98,30)]));
+['Zero','Um','Dois','Três','Quatro','Cinco','Seis','Sete','Oito','Nove','Dez','Vinte','Trinta','Quarenta','Cinquenta','Sessenta','Setenta','Oitenta','Noventa','Cem'].forEach((w,i)=>{const v=i<10?i:(i-9)*10,z=[78,64,50][String(v).length-1];DR.push([w,TL(i)+TX(v,60,Math.round(60+z*.36),z)])});
 const svg=s=>`<svg viewBox="0 0 120 120" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">${s}</svg>`;
-const CATS=[['Todas',0,56],['Natureza',0,11],['Animais',11,26],['Frutas e alimentos',26,37],['Objetos e transportes',37,50],['Outros elementos',50,56]];
+const CATS=[['Todas',0,56],['Natureza',0,11],['Animais',11,26],['Frutas e alimentos',26,37],['Objetos e transportes',37,50],['Outros elementos',50,56],['Letras',56,82],['Números',82,102]];
 
 /* ===== Utilidades, estado e recordes (localStorage, sem dados pessoais) ===== */
 const pad=v=>String(v).padStart(2,'0'),fmt=s=>pad(s/60|0)+':'+pad(s%60);
@@ -187,6 +194,21 @@ const wr=r=>{try{localStorage.setItem(LS,JSON.stringify(r))}catch(e){}};
 function tone(f,d=.12,ty='sine',v=.07,at=0){if(!sOn)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();AC.resume();const o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime+at;o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+d)}catch(e){}}
 const FX={flip:()=>tone(520,.08,'triangle'),ok:()=>{tone(660,.12);tone(880,.2,'sine',.07,.1)},no:()=>tone(170,.25,'sawtooth',.04),rv:()=>[440,660,990].forEach((f,i)=>tone(f,.15,'sine',.07,i*.1)),win:()=>[523,659,784,1047].forEach((f,i)=>tone(f,.28,'triangle',.08,i*.14))};
 
+/* ===== Voz em português do Brasil (Web Speech): fala o nome só ao achar o par ===== */
+const SS=window.speechSynthesis,LN='á bê cê dê é éfe gê agá i jóta cá éle ême êne ó pê quê érre ésse tê u vê dáblio xis ípsilon zê'.split(' ');
+let vOn=!!SS,vc=null,vu=false;
+if(!SS)$('#vz').hidden=true;
+const unlockV=()=>{if(vu||!SS)return;vu=true;try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;SS.speak(u)}catch(e){}}; // libera a fala no 1º toque (iOS)
+function voz(){ // prefere voz pt-BR feminina e natural; senão, a primeira pt-BR
+ if(vc)return vc;
+ const sc=v=>(/francisca|luciana|maria|vit[oó]ria|fernanda|camila|helo[ií]sa|thalita|giovanna|brenda|leila|google|feminin|\bfemale\b/i.test(v.name)?2:0)+(/natural|neural|online/i.test(v.name)?1:0)-(/daniel|ant[oô]nio|felipe|ricardo|thiago|jorge|masculin|\bmale\b/i.test(v.name)?3:0);
+ return vc=SS.getVoices().filter(v=>/pt[-_]BR/i.test(v.lang)).sort((a,b)=>sc(b)-sc(a))[0]||null}
+function speak(k){
+ if(!SS||!vOn||!sOn)return;
+ const u=new SpeechSynthesisUtterance(k>55&&k<82?LN[k-56]:DR[k][0].toLowerCase()),v=voz();
+ u.lang='pt-BR';if(v)u.voice=v;u.rate=.9;u.pitch=1.15;
+ if(SS.speaking||SS.pending){SS.cancel();setTimeout(()=>SS.speak(u),60)}else SS.speak(u)}
+
 /* ===== Tela de configuração ===== */
 $('#cats').innerHTML=CATS.map((c,i)=>`<button data-c="${i}">${c[0]}</button>`).join('');
 $('#nums').innerHTML=Array.from({length:56},(_,i)=>`<button data-n="${i+1}">${pad(i+1)}</button>`).join('');
@@ -194,7 +216,7 @@ function upd(){
  const pool=CATS[cat][2]-CATS[cat][1],r=rd();
  $$('#cats button').forEach((x,i)=>x.setAttribute('aria-pressed',i==cat));
  $$('#nums button').forEach((x,i)=>{x.setAttribute('aria-pressed',i+1==n);x.style.opacity=i<pool?1:.4});
- $('#pre').textContent=n>pool?`Esta categoria tem só ${pool} desenhos. Escolha até ${pool} pares.`:`${n} pares = ${2*n} cartas`;
+ $('#pre').textContent=n>pool?`Esta categoria tem só ${pool} opções. Escolha até ${pool} pares.`:`${n} pares = ${2*n} cartas`;
  $('#go').disabled=n>pool;
  $('#rec').textContent=`Partidas: ${r.g} · Pares encontrados: ${r.p} · Maior jogo: ${r.mx} pares · Revelações usadas: ${r.rv} · Recorde de ${n} pares: `+(r.t[n]!=null?`${fmt(r.t[n])} e ${r.a[n]} tentativas`:'sem registro')}
 $('#cats').onclick=e=>{const b=e.target.closest('button');if(b){cat=+b.dataset.c;upd()}};
@@ -220,12 +242,12 @@ const show=(s,i,on)=>{const e=s.els[i];e.classList.toggle('on',on);e.setAttribut
 function flip(i){
  const s=st;if(!s||s.lock||s.over||s.els[i].classList.contains('on'))return;
  if(!s.t0){s.t0=Date.now();s.iv=setInterval(()=>{s.sec=(Date.now()-s.t0)/1000|0;$('#tm').textContent=fmt(s.sec)},250)}
- show(s,i,true);FX.flip();s.open.push(i);
+ show(s,i,true);FX.flip();unlockV();s.open.push(i);
  if(s.open.length<2)return;
  const[a,b]=s.open;s.tries++;s.lock=true; // bloqueia novas seleções durante a comparação
  if(s.deck[a]==s.deck[b]){
   s.open=[];s.found++;[a,b].forEach(j=>s.els[j].classList.add('done'));
-  setTimeout(()=>{FX.ok();s.lock=false},450);say('Par encontrado: '+DR[s.deck[a]][0]);
+  setTimeout(()=>{FX.ok();s.lock=false;setTimeout(()=>{if(st===s)speak(s.deck[a])},350)},450);say('Par encontrado: '+DR[s.deck[a]][0]);
   if(s.found==s.n){s.over=true;clearInterval(s.iv);s.sec=(Date.now()-s.t0)/1000|0;setTimeout(()=>win(s),1000)}
  }else{
   [a,b].forEach(j=>s.els[j].classList.add('bad'));setTimeout(FX.no,350);say('Cartas diferentes. Tente de novo!');
@@ -247,7 +269,7 @@ function win(s){
  $('#nf').hidden=!!s.rv;$('#nm').value='';$('#ns').textContent=s.rv?'Partidas com REVELAR não entram no placar.':'';$('#win').hidden=false;$('#ng2').focus();FX.win();confetti();say('Parabéns! Você encontrou todos os pares.')}
 function confetti(){const c=['#e8336f','#ffd93d','#2bb3ff','#12a066','#a78bfa'];
  for(let i=0;i<50;i++){const d=document.createElement('i');d.className='cf';d.style.cssText=`left:${Math.random()*100}vw;background:${c[i%5]};animation-delay:${Math.random()*.8}s;animation-duration:${2+Math.random()*2}s`;document.body.appendChild(d);setTimeout(()=>d.remove(),5000)}}
-function menu(){if(st)clearInterval(st.iv);st=null;$('#win').hidden=true;$('#game').hidden=true;$('#setup').hidden=false;$$('.cf').forEach(x=>x.remove());upd()}
+function menu(){if(st)clearInterval(st.iv);if(SS)SS.cancel();st=null;$('#win').hidden=true;$('#game').hidden=true;$('#setup').hidden=false;$$('.cf').forEach(x=>x.remove());upd()}
 $('#ng').onclick=$('#ng2').onclick=menu;$('#go').onclick=start;
 
 /* ===== Grade adaptativa: testa combinações de colunas × linhas e escolhe a de maior carta legível.
@@ -288,6 +310,7 @@ $('#nf').onsubmit=e=>{e.preventDefault();const s=st;if(!s||!s.over||s.saved||s.r
 $('#tb').onclick=e=>{const b=e.target.closest('button');if(!b)return;
  if(b.dataset.t){document.body.dataset.t=b.dataset.t;$$('#tb [data-t]').forEach(x=>x.setAttribute('aria-pressed',x==b))}
  else if(b.id=='snd'){sOn=!sOn;b.setAttribute('aria-pressed',sOn);b.textContent=sOn?'Som: sim':'Som: não'}
+ else if(b.id=='vz'){vOn=!vOn;b.setAttribute('aria-pressed',vOn);b.textContent=vOn?'Voz: sim':'Voz: não';if(!vOn&&SS)SS.cancel()}
  else if(b.id=='pb'){$('#pl').hidden=false;showPl(st?st.n:n)}else $('#help').hidden=false};
 $('#q').onclick=()=>$('#cr').hidden=false;
 $$('.ov').forEach(o=>o.addEventListener('click',e=>{if((e.target===o&&o.id!='win')||e.target.dataset.x!=null)o.hidden=true}));

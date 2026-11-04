@@ -127,7 +127,7 @@ h2{font-size:1rem;margin:14px 0 6px}
 </section>
 <div id="live" class="sr" aria-live="polite"></div>
 <div id="win" class="ov" hidden role="dialog" aria-modal="true" aria-labelledby="wt"><div class="pn"><h2 id="wt">Parabéns, você venceu!</h2><p id="ws"></p><form id="nf" autocomplete="off"><label>Seu nome para o placar<br><input id="nm" maxlength="16" placeholder="Digite seu nome"></label><br><button class="pri">SALVAR</button></form><p id="ns" aria-live="polite"></p><div class="bt"><button class="pri" id="ng2">NOVO JOGO</button><button data-x>FECHAR</button></div></div></div>
-<div id="pf" class="ov" hidden role="dialog" aria-modal="true" aria-label="Cartas em PDF"><div class="pn"><h2>Cartas em PDF</h2><p>Imprima e jogue longe da tela. O PDF traz só a frente das cartas (desenho e nome), em páginas A4 com cartas de 6,2 × 7,5 cm. Letras e números ficam em páginas separadas dos desenhos.</p><div id="pfl"></div><p><label><input type="checkbox" id="pfp" checked>Gerar pares (2 cartas de cada)</label></p><p id="pfs" aria-live="polite"></p><div class="bt"><button class="pri" id="pfg">Gerar PDF</button><button data-x>Fechar</button></div></div></div>
+<div id="pf" class="ov" hidden role="dialog" aria-modal="true" aria-label="Cartas em PDF"><div class="pn"><h2>Cartas em PDF</h2><p>Imprima e jogue longe da tela. O PDF traz só a frente das cartas (desenho e nome), em páginas A4 com cartas de 6,2 × 7,5 cm. Letras e números ficam em páginas separadas dos desenhos. Os desenhos vão como vetor (SVG), com traços nítidos na impressão.</p><div id="pfl"></div><p><label><input type="checkbox" id="pfp" checked>Gerar pares (2 cartas de cada)</label></p><p id="pfs" aria-live="polite"></p><div class="bt"><button class="pri" id="pfg">Gerar PDF</button><button data-x>Fechar</button></div></div></div>
 <div id="pl" class="ov" hidden role="dialog" aria-modal="true" aria-label="Placar"><div class="pn"><h2>Placar</h2><select id="ps" aria-label="Quantidade de pares"></select><div id="pt"></div><p><small>Ordem: menor tempo, depois menos tentativas. Partidas com REVELAR não entram.</small></p><div class="bt"><button id="pc">Limpar placar</button><button class="pri" data-x>Fechar</button></div></div></div>
 <div id="help" class="ov" hidden role="dialog" aria-modal="true" aria-label="Como jogar"><div class="pn"><h2>Como jogar</h2><ol><li>Escolha a quantidade de pares.</li><li>Clique em uma carta para revelar o desenho.</li><li>Encontre outra carta igual.</li><li>Use REVELAR quando precisar de ajuda (partidas com REVELAR não entram no placar).</li><li>A voz fala o nome ao achar o par (dá para desligar no botão Voz).</li><li>Complete todos os pares para vencer!</li></ol><button class="pri" data-x>Entendi</button></div></div>
 <div id="cr" class="ov" hidden role="dialog" aria-modal="true" aria-label="Créditos"><div class="pn"><h2>Jogo da Memória Educativo</h2><p>Plataforma interativa para crianças em fase de alfabetização: associação de imagens, letras, números e palavras, com pronúncia em português brasileiro para estimular memória, atenção e reconhecimento visual.</p><p>Desenvolvido por:<br><b>eliseuangelos</b></p><p><a href="https://eliseuangelos.github.io/eliseuangelos/" target="_blank" rel="noopener">https://eliseuangelos.github.io/eliseuangelos/</a></p><p><small>© 2026 Eliseu Fernandes Laurindo. Todos os direitos reservados.</small></p><button class="pri" data-x>Fechar</button></div></div>
@@ -205,7 +205,7 @@ const DR=[
 // Diversos (44-55)
 ['Pipa',P('M60 8L98 50 60 94 22 50z','#ffca28')+P('M60 8L98 50H60zM60 94L22 50H60z','#ef5350')+A('M60 8V94M22 50H98',2)+A('M34 46l14-20',3,'#fff3b0')+A('M60 94q-12 6-6 14t6 10',2.4)+P('M54 102l-7-4v8zM54 102l7-4v8z','#42a5f5')+P('M58 113l-6-3v6zM58 113l6-3v6z','#e8336f')],
 ['Casa',R(78,24,12,26,'#a1887f',2)+D([[84,16],[92,8]],5,'#cfd8dc',1)+R(24,56,72,50,'#ffe0b2',4)+P('M10 60L60 16l50 44z','#ef4444')+S('M60 16l50 44H60z','#b71c1c',.3)+C(60,44,7,'#bfe9ff')+R(51,76,18,30,'#8d6e63',4)+D([[65,92]],1.8,'#ffd93d')+R(30,68,16,16,'#bfe9ff',2)+R(74,68,16,16,'#bfe9ff',2)+A('M38 68v16M30 76h16M82 68v16M74 76h16',1.8)+C(16,104,8,'#4cb84c')+C(104,104,8,'#4cb84c')],
-['Castelo',R(12,58,28,46,'#b0bec5',2)+R(80,58,28,46,'#b0bec5',2)+R(36,44,48,60,'#cfd8dc',2)+S('M72 44h12v60H72z','#90a4ae',.3)+P('M8 60l18-28 18 28z','#ef4444')+P('M76 60l18-28 18 28z','#ef4444')+P('M32 46l28-30 28 30z','#7e57c2')+A('M60 16V6',2.5)+P('M60 6l12 4-12 4z','#ef4444')+P('M50 104V86a10 10 0 0 1 20 0v18z','#6d4c41')+A('M60 76v28',1.8,'#3e2a1f')+P('M21 82V74a4 4 0 0 1 8 0v8z','#37474f')+P('M91 82V74a4 4 0 0 1 8 0v8z','#37474f')+P('M54 68V62a6 6 0 0 1 12 0v6z','#37474f')],
+['Castelo',N(60,108,52,5,'#9be08f')+R(50,28,21,26,'#cfd8dc',2)+P('M46 32L60.5 10 75 32z','#7e57c2')+S('M60.5 10L75 32H60.5z','#000',.12)+A('M60.5 10V2',2.5)+P('M60.5 2l10 3.5-10 3.5z','#ffca28')+P('M56 46V40.5a4.5 4.5 0 0 1 9 0V46z','#ffe082')+P('M37 104V46h8v6h5v-6h8v6h5v-6h8v6h5v-6h8V104z','#cfd8dc')+S('M77 46h7v58h-7z','#000',.1)+A('M37 57h47M37 73h47M37 89h47M45 57v16M60.5 57v16M76 57v16M52 73v16M69 73v16',1.5,'#90a4ae')+R(13,34,24,70,'#b0bec5',2)+R(84,34,24,70,'#b0bec5',2)+S('M15 36h3v66h-3z','#fff',.4)+S('M86 36h3v66h-3z','#fff',.4)+A('M13 68h24M84 68h24M13 92h24M84 92h24M19 68v12M31 68v12M90 68v12M102 68v12',1.5,'#90a4ae')+P('M21.5 62V54.5a3.5 3.5 0 0 1 7 0V62z','#ffe082')+P('M92.5 62V54.5a3.5 3.5 0 0 1 7 0V62z','#ffe082')+A('M25 78v8M96 78v8',3.5,'#607d8b')+P('M9 38L25 8 41 38z','#ef5350')+P('M80 38L96 8l16 30z','#ef5350')+S('M25 8l16 30H25z','#000',.12)+S('M96 8l16 30H96z','#000',.12)+P('M49 104V86a11.5 11.5 0 0 1 23 0v18z','#90a4ae')+P('M52 104V86a8.5 8.5 0 0 1 17 0v18z','#8d6e63')+A('M60.5 77.5V104M56 82v22M65 82v22',1.5,'#5d4037')+D([[54,94],[67,94]],1.3,'#ffd54f')+P('M42 74V67a4 4 0 0 1 8 0v7z','#ffe082')+P('M71 74V67a4 4 0 0 1 8 0v7z','#ffe082')+P('M52 104h17l6 8H46z','#a1887f')],
 ['Óculos',Q(32,64,22,'#bfe9ff','#7c4dff',6)+Q(88,64,22,'#bfe9ff','#7c4dff',6)+A('M54 60q6-8 12 0',5,'#7c4dff')+A('M10 58L3 44M110 58l7-14',5,'#7c4dff')+A('M20 58q4-8 12-8M76 58q4-8 12-8',3.5,'#fff')+A('M24 76l8-9M80 76l8-9',2.5,'#fff')+P('M100 14l3 7 7 3-7 3-3 7-3-7-7-3 7-3z','#ffd93d')],
 ['Livro',P('M6 36v66q27-10 54 0 27-10 54 0V36q-27-12-54 0-27-12-54 0z','#7c4dff')+P('M60 38Q36 26 12 36v56q24-8 48 2z','#fff')+P('M60 38Q84 26 108 36v56q-24-8-48 2z','#fff')+A('M20 48q14-4 30 1M20 60q14-4 30 1M20 72q14-4 30 1M20 84q8-2 18 0M70 49q15-5 30-1M70 61q15-5 30-1M70 73q15-5 30-1',2.2,'#b8c0cc')+P('M90 31v32l6-6 6 6V33z','#ef476f')],
 ['Relógio',C(28,26,12,'#ef476f')+C(92,26,12,'#ef476f')+A('M60 8v16',4)+A('M30 98l-8 12M90 98l8 12',5,'#7c4dff')+Q(60,66,38,'#fff','#7c4dff',7)+Array.from({length:12},(_,i)=>G(i*30,60,66,A('M60 37v'+(i%3?3:7),i%3?2:3.5,'#2f3e5c'))).join('')+A('M60 66L44 57',5,'#2f3e5c')+A('M60 66L83 52',3.5,'#2f3e5c')+C(60,66,4.5,'#ef476f')],
@@ -351,36 +351,84 @@ $('#nf').onsubmit=e=>{e.preventDefault();const s=st;if(!s||!s.over||s.saved||s.r
  try{localStorage.setItem(PK,JSON.stringify(b))}catch(e){}
  s.saved=true;$('#nf').hidden=true;$('#ns').textContent='Salvo no placar!'};
 
-/* ===== Cartas em PDF: só a frente, A4, 3×3 (6,2 × 7,5 cm), PDF montado no próprio navegador ===== */
-const PU='https://eliseuangelos.github.io/jogo-da-memoria/';
-const rr=(x,a,b,w,h,r)=>{x.beginPath();x.moveTo(a+r,b);x.arcTo(a+w,b,a+w,b+h,r);x.arcTo(a+w,b+h,a,b+h,r);x.arcTo(a,b+h,a,b,r);x.arcTo(a,b,a+w,b,r);x.closePath()};
-const cardJpg=k=>new Promise((ok,no)=>{
- const W=620,H=750,c=document.createElement('canvas'),x=c.getContext('2d'),im=new Image();c.width=W;c.height=H;
- im.onload=()=>{
-  x.fillStyle='#fff';x.fillRect(0,0,W,H);x.drawImage(im,45,50,530,530);
-  const t=DR[k][0];let f=66;x.textAlign='center';x.fillStyle='#3b2f4a';
-  do{x.font=`bold ${f}px "Arial Rounded MT Bold","Trebuchet MS",Arial,sans-serif`;f-=2}while(x.measureText(t).width>540&&f>20);
-  x.fillText(t,W/2,672);x.lineWidth=8;x.strokeStyle='#4a3b5c';rr(x,6,6,W-12,H-12,40);x.stroke();
-  ok(Uint8Array.from(atob(c.toDataURL('image/jpeg',.92).split(',')[1]),ch=>ch.charCodeAt(0)))};
- im.onerror=no;
- im.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg(DR[k][1]).replace('<svg ','<svg xmlns="http://www.w3.org/2000/svg" width="530" height="530" color="#4a3b5c" '))});
+/* ===== Cartas em PDF: só a frente, A4, 3×3 (6,2 × 7,5 cm). Desenhos em VETOR: o SVG é convertido em operadores PDF, no navegador ===== */
+const PU='https://eliseuangelos.github.io/jogo-da-memoria/',CMf=28.3465,CWp=6.2*CMf,CHp=7.5*CMf,al=new Map();
+let cvx;const tw=(b,z,t)=>{cvx=cvx||document.createElement('canvas').getContext('2d');cvx.font=`${b?'bold ':''}${z}px Helvetica,Arial,sans-serif`;return cvx.measureText(t).width};
+const f3=v=>+(+v).toFixed(3),gs=v=>{v=f3(v);if(!al.has(v))al.set(v,'A'+al.size);return al.get(v)};
+const HEX=c=>{c=(c||'').trim();if(c=='currentColor')c='#4a3b5c';if(c[0]!='#')return null;if(c.length==4)c='#'+[...c.slice(1)].map(h=>h+h).join('');return[1,3,5].map(i=>f3(parseInt(c.substr(i,2),16)/255))};
+const mm=(m,n)=>[m[0]*n[0]+m[2]*n[1],m[1]*n[0]+m[3]*n[1],m[0]*n[2]+m[2]*n[3],m[1]*n[2]+m[3]*n[3],m[0]*n[4]+m[2]*n[5]+m[4],m[1]*n[4]+m[3]*n[5]+m[5]];
+const tf=t=>{let m=[1,0,0,1,0,0];for(const[,k,a]of t.matchAll(/(\w+)\(([^)]*)\)/g)){const v=a.trim().split(/[\s,]+/).map(Number);
+ if(k=='translate')m=mm(m,[1,0,0,1,v[0],v[1]||0]);
+ else if(k=='scale')m=mm(m,[v[0],0,0,v.length>1?v[1]:v[0],0,0]);
+ else if(k=='rotate'){const r=v[0]*Math.PI/180,c=Math.cos(r),s=Math.sin(r),x=v[1]||0,y=v[2]||0;m=mm(mm(mm(m,[1,0,0,1,x,y]),[c,s,-s,c,0,0]),[1,0,0,1,-x,-y])}}
+ return m.map(v=>+v.toFixed(5)).join(' ')};
+const ell=(x,y,a,b)=>{const u=a*.5523,v=b*.5523;return `${x+a} ${y} m ${x+a} ${y+v} ${x+u} ${y+b} ${x} ${y+b} c ${x-u} ${y+b} ${x-a} ${y+v} ${x-a} ${y} c ${x-a} ${y-v} ${x-u} ${y-b} ${x} ${y-b} c ${x+u} ${y-b} ${x+a} ${y-v} ${x+a} ${y} c h\n`};
+const rect=(x,y,w,h,r)=>{r=Math.min(r||0,w/2,h/2);if(!r)return `${x} ${y} ${w} ${h} re\n`;const k=r*.5523,X=x+w,Y=y+h;return `${x+r} ${y} m ${X-r} ${y} l ${X-r+k} ${y} ${X} ${y+r-k} ${X} ${y+r} c ${X} ${Y-r} l ${X} ${Y-r+k} ${X-r+k} ${Y} ${X-r} ${Y} c ${x+r} ${Y} l ${x+r-k} ${Y} ${x} ${Y-r+k} ${x} ${Y-r} c ${x} ${y+r} l ${x} ${y+r-k} ${x+r-k} ${y} ${x+r} ${y} c h\n`};
+function arc(x1,y1,rx,ry,ph,fa,fs,x2,y2){ // arco SVG → curvas de Bézier cúbicas
+ if(!rx||!ry)return[[x1,y1,x2,y2,x2,y2]];
+ rx=Math.abs(rx);ry=Math.abs(ry);const p=ph*Math.PI/180,cp=Math.cos(p),sp=Math.sin(p),dx=(x1-x2)/2,dy=(y1-y2)/2,xp=cp*dx+sp*dy,yp=-sp*dx+cp*dy,l=xp*xp/(rx*rx)+yp*yp/(ry*ry);
+ if(l>1){const q=Math.sqrt(l);rx*=q;ry*=q}
+ const k=(fa==fs?-1:1)*Math.sqrt(Math.max(0,(rx*rx*ry*ry-rx*rx*yp*yp-ry*ry*xp*xp)/(rx*rx*yp*yp+ry*ry*xp*xp))),cxp=k*rx*yp/ry,cyp=-k*ry*xp/rx,cx=cp*cxp-sp*cyp+(x1+x2)/2,cy=sp*cxp+cp*cyp+(y1+y2)/2;
+ const an=(ux,uy,vx,vy)=>Math.atan2(ux*vy-uy*vx,ux*vx+uy*vy),t1=an(1,0,(xp-cxp)/rx,(yp-cyp)/ry);
+ let dt=an((xp-cxp)/rx,(yp-cyp)/ry,(-xp-cxp)/rx,(-yp-cyp)/ry);
+ if(!fs&&dt>0)dt-=2*Math.PI;else if(fs&&dt<0)dt+=2*Math.PI;
+ const N=Math.max(1,Math.ceil(Math.abs(dt)/(Math.PI/2)-1e-9)),d=dt/N,t=4/3*Math.tan(d/4),out=[],P=(u,v)=>[cp*rx*u-sp*ry*v+cx,sp*rx*u+cp*ry*v+cy];
+ for(let i=0;i<N;i++){const a1=t1+i*d,a2=a1+d,c1=Math.cos(a1),s1=Math.sin(a1),c2=Math.cos(a2),s2=Math.sin(a2);out.push([...P(c1-t*s1,s1+t*c1),...P(c2+t*s2,s2-t*c2),...P(c2,s2)])}
+ return out}
+function pd(d){ // dados de caminho SVG → m, l, c, h do PDF
+ const T=d.match(/[a-z]|-?\d*\.?\d+(?:e[-+]?\d+)?/gi);let i=0,o='',c='M',x=0,y=0,X=0,Y=0,cx=0,cy=0,pk='';
+ const n=()=>+T[i++],cu=(a,b,p,q,r,s)=>{o+=`${f3(a)} ${f3(b)} ${f3(p)} ${f3(q)} ${f3(r)} ${f3(s)} c\n`;cx=p;cy=q;x=r;y=s};
+ while(i<T.length){
+  if(/[a-z]/i.test(T[i]))c=T[i++];
+  const rl=c>'Z',C=c.toUpperCase(),ox=rl?x:0,oy=rl?y:0;
+  if(C=='M'){x=n()+ox;y=n()+oy;X=x;Y=y;o+=`${f3(x)} ${f3(y)} m\n`;c=rl?'l':'L'}
+  else if(C=='L'){x=n()+ox;y=n()+oy;o+=`${f3(x)} ${f3(y)} l\n`}
+  else if(C=='H'){x=n()+ox;o+=`${f3(x)} ${f3(y)} l\n`}
+  else if(C=='V'){y=n()+oy;o+=`${f3(x)} ${f3(y)} l\n`}
+  else if(C=='C')cu(n()+ox,n()+oy,n()+ox,n()+oy,n()+ox,n()+oy);
+  else if(C=='S'){const a=/[CS]/.test(pk)?2*x-cx:x,b=/[CS]/.test(pk)?2*y-cy:y;cu(a,b,n()+ox,n()+oy,n()+ox,n()+oy)}
+  else if(C=='Q'||C=='T'){let a,b;if(C=='Q'){a=n()+ox;b=n()+oy}else{a=/[QT]/.test(pk)?2*x-cx:x;b=/[QT]/.test(pk)?2*y-cy:y}
+   const r=n()+ox,s=n()+oy,x0=x,y0=y;cu(x0+2/3*(a-x0),y0+2/3*(b-y0),r+2/3*(a-r),s+2/3*(b-s),r,s);cx=a;cy=b}
+  else if(C=='A'){const rx=n(),ry=n(),ph=n(),fa=n(),fs=n(),r=n()+ox,s=n()+oy;for(const e of arc(x,y,rx,ry,ph,fa,fs,r,s))cu(...e);x=r;y=s}
+  else if(C=='Z'){o+='h\n';x=X;y=Y}
+  pk=C}
+ return o}
+const pesc=t=>t.replace(/[\\()]/g,'\\$&');
+function walk(n,S){ // percorre o SVG herdando fill/stroke/opacity e gera os operadores
+ const g=a=>n.getAttribute(a),t=n.localName,s={...S};
+ for(const k of['fill','stroke','stroke-width'])if(g(k)!=null)s[k]=g(k);
+ if(g('opacity')!=null)s.op=S.op*+g('opacity');
+ if(t=='svg'||t=='g'){const o=[...n.children].map(c=>walk(c,s)).join(''),tr=g('transform');return tr?`q ${tf(tr)} cm\n${o}Q\n`:o}
+ const fc=HEX(s.fill),sc=HEX(s.stroke);if(!fc&&!sc)return'';
+ const pre=`q\n${s.op<1?`/${gs(s.op)} gs\n`:''}`,ln=sc?`${sc.join(' ')} RG\n${s['stroke-width']} w 1 J 1 j\n`:'';
+ if(t=='text'){ // contorno atrás e preenchimento na frente (paint-order: stroke), em Helvetica-Bold
+  const z=+g('font-size'),x=+g('x'),y=+g('y'),tx=n.textContent,w=tw(1,z,tx),x0=g('text-anchor')=='middle'?x-w/2:x,
+   T=m=>`BT /F2 ${z} Tf ${m} Tr 1 0 0 -1 ${f3(x0)} ${y} Tm (${pesc(tx)}) Tj ET\n`;
+  return pre+(sc?ln+T(1):'')+(fc?`${fc.join(' ')} rg\n`+T(0):'')+'Q\n'}
+ const p=t=='path'?pd(g('d')):t=='circle'?ell(+g('cx'),+g('cy'),+g('r'),+g('r')):t=='ellipse'?ell(+g('cx'),+g('cy'),+g('rx'),+g('ry')):t=='rect'?rect(+g('x'),+g('y'),+g('width'),+g('height'),+g('rx')||0):'';
+ return p?pre+(fc?`${fc.join(' ')} rg\n`:'')+ln+p+(fc&&sc?'B':fc?'f':'S')+'\nQ\n':''}
+function cardForm(k){ // uma carta (moldura, desenho vetorial e nome) em pontos PDF
+ const root=new DOMParser().parseFromString(svg(DR[k][1]).replace('<svg ','<svg xmlns="http://www.w3.org/2000/svg" '),'image/svg+xml').documentElement,lb=DR[k][0],sc=5.3*CMf/120;
+ let z=18.7;while(tw(1,z,lb)>5.4*CMf&&z>8)z-=.5;
+ return `q\n0.29 0.231 0.361 RG 2 w 1 J 1 j\n${rect(1.2,1.2,CWp-2.4,CHp-2.4,11.3)}S\nQ\n`
+  +`q ${f3(sc)} 0 0 ${f3(-sc)} ${f3(.45*CMf)} ${f3(CHp-.5*CMf)} cm\n${walk(root,{fill:'#000',stroke:'none','stroke-width':'3',op:1})}Q\n`
+  +`q 0.231 0.184 0.29 rg BT /F2 ${z} Tf ${f3((CWp-tw(1,z,lb))/2)} 22 Td (${pesc(lb)}) Tj ET Q\n`}
 function openPdf(){$('#pfl').innerHTML=CATS.slice(1).map((c,i)=>`<label><input type="checkbox" value="${i+1}" checked>${c[0]} (${c[2]-c[1]})</label>`).join('');$('#pfs').textContent='';$('#pf').hidden=false}
 async function makePdf(){
  const sel=[...$$('#pfl input:checked')].map(i=>CATS[+i.value]),ms=$('#pfs'),bt=$('#pfg');
  if(!sel.length){ms.textContent='Escolha ao menos uma categoria.';return}
- bt.disabled=true;
+ bt.disabled=true;al.clear();
  try{
   const sec=[['Desenhos',[]],['Letras',[]],['Números',[]]],dup=$('#pfp').checked?2:1; // letras e números em páginas próprias
   sel.forEach(([,a,b])=>{for(let k=a;k<b;k++)sec[a>=82?2:a>=56?1:0][1].push(k)});
-  const ks=[...new Set(sec.flatMap(q=>q[1]))],jp={};let q=0;
-  for(const k of ks){jp[k]=await cardJpg(k);ms.textContent=`Preparando cartas… ${++q}/${ks.length}`}
-  const CM=28.3465,PW=595.28,PH=841.89,CW=6.2*CM,CH=7.5*CM,GX=.4*CM,GY=.4*CM,X0=(PW-3*CW-2*GX)/2,Y0=PH-2.75*CM,P=[];
+  const ks=[...new Set(sec.flatMap(q=>q[1]))],fm=[];
+  for(const k of ks){fm.push(cardForm(k));ms.textContent=`Preparando cartas… ${fm.length}/${ks.length}`;await new Promise(r=>setTimeout(r))}
+  const PW=595.28,PH=841.89,GX=.4*CMf,GY=.4*CMf,X0=(PW-3*CWp-2*GX)/2,Y0=PH-2.75*CMf,P=[];
   sec.forEach(([nm,it])=>{const L=it.flatMap(k=>Array(dup).fill(k));for(let i=0;i<L.length;i+=9)P.push([nm,L.slice(i,i+9)])});
-  const parts=[],off=[],NP=P.length,B=6,base=B+ks.length,total=base+2*NP,cv=document.createElement('canvas').getContext('2d');let len=0;
+  const parts=[],off=[],NP=P.length,B=6,G0=B+ks.length,base=G0+al.size,total=base+2*NP;let len=0;
   const put=d=>{const b=typeof d=='string'?Uint8Array.from(d,ch=>ch.charCodeAt(0)&255):d;parts.push(b);len+=b.length};
   const obj=(id,dic,bin)=>{off[id]=len;put(`${id} 0 obj\n${dic}\n`);if(bin){put('stream\n');put(bin);put('\nendstream\n')}put('endobj\n')};
-  const tw=(f,z,t)=>{cv.font=`${f?'bold ':''}${z}px Helvetica,Arial,sans-serif`;return cv.measureText(t).width};
-  const tx=(f,z,t,x,y)=>`BT /F${f} ${z} Tf ${x.toFixed(2)} ${y.toFixed(2)} Td (${t.replace(/[\\()]/g,'\\$&')}) Tj ET\n`;
+  const tx=(f,z,t,x,y)=>`BT /F${f} ${z} Tf ${x.toFixed(2)} ${y.toFixed(2)} Td (${pesc(t)}) Tj ET\n`,fr='<</F1 3 0 R/F2 4 0 R>>',gsR=[...al].map(([,nm],i)=>`/${nm} ${G0+i} 0 R`).join('');
   const l1='Gerado a partir do site: '+PU,l2='DISTRIBUIÇÃO GRATUITA';
   put('%PDF-1.4\n%âãÏÓ\n');
   obj(1,'<</Type/Catalog/Pages 2 0 R>>');
@@ -388,20 +436,21 @@ async function makePdf(){
   obj(3,'<</Type/Font/Subtype/Type1/BaseFont/Helvetica/Encoding/WinAnsiEncoding>>');
   obj(4,'<</Type/Font/Subtype/Type1/BaseFont/Helvetica-Bold/Encoding/WinAnsiEncoding>>');
   obj(5,'<</Title(Jogo da Memoria Educativo - Cartas para imprimir)/Author(Eliseu Fernandes Laurindo)/Creator('+PU+')>>');
-  ks.forEach((k,i)=>obj(B+i,`<</Type/XObject/Subtype/Image/Width 620/Height 750/ColorSpace/DeviceRGB/BitsPerComponent 8/Filter/DCTDecode/Length ${jp[k].length}>>`,jp[k]));
+  ks.forEach((k,i)=>{const b=Uint8Array.from(fm[i],ch=>ch.charCodeAt(0)&255);obj(B+i,`<</Type/XObject/Subtype/Form/BBox[0 0 ${CWp.toFixed(2)} ${CHp.toFixed(2)}]/Resources<</Font${fr}/ExtGState<<${gsR}>>>>/Length ${b.length}>>`,b)});
+  [...al.keys()].forEach((v,i)=>obj(G0+i,`<</Type/ExtGState/ca ${v}/CA ${v}>>`));
   P.forEach(([nm,cs],i)=>{
-   let c='0.3 g\n'+tx(1,8,`Jogo da Memória Educativo · ${nm} · página ${i+1} de ${NP}`,X0,PH-1.3*CM);
-   cs.forEach((k,j)=>{const r=(j/3)|0,x=X0+(j%3)*(CW+GX),y=Y0-(r+1)*CH-r*GY;c+=`q ${CW.toFixed(2)} 0 0 ${CH.toFixed(2)} ${x.toFixed(2)} ${y.toFixed(2)} cm /I${k} Do Q\n`});
-   c+='0.2 g\n'+tx(1,8,l1,(PW-tw(0,8,l1))/2,1.7*CM)+tx(2,9,l2,(PW-tw(1,9,l2))/2,1.15*CM);
+   let c='0.3 g\n'+tx(1,8,`Jogo da Memória Educativo · ${nm} · página ${i+1} de ${NP}`,X0,PH-1.3*CMf);
+   cs.forEach((k,j)=>{const r=(j/3)|0,x=X0+(j%3)*(CWp+GX),y=Y0-(r+1)*CHp-r*GY;c+=`q 1 0 0 1 ${x.toFixed(2)} ${y.toFixed(2)} cm /C${k} Do Q\n`});
+   c+='0.2 g\n'+tx(1,8,l1,(PW-tw(0,8,l1))/2,1.7*CMf)+tx(2,9,l2,(PW-tw(1,9,l2))/2,1.15*CMf);
    const b=Uint8Array.from(c,ch=>ch.charCodeAt(0)&255),pid=base+2*i;
-   obj(pid,`<</Type/Page/Parent 2 0 R/MediaBox[0 0 ${PW} ${PH}]/Contents ${pid+1} 0 R/Resources<</Font<</F1 3 0 R/F2 4 0 R>>/XObject<<${[...new Set(cs)].map(k=>`/I${k} ${B+ks.indexOf(k)} 0 R`).join('')}>>>>>>`);
+   obj(pid,`<</Type/Page/Parent 2 0 R/MediaBox[0 0 ${PW} ${PH}]/Contents ${pid+1} 0 R/Resources<</Font${fr}/XObject<<${[...new Set(cs)].map(k=>`/C${k} ${B+ks.indexOf(k)} 0 R`).join('')}>>>>>>`);
    obj(pid+1,`<</Length ${b.length}>>`,b)});
   const xo=len;put(`xref\n0 ${total}\n0000000000 65535 f \n`);
   for(let i=1;i<total;i++)put(String(off[i]).padStart(10,'0')+' 00000 n \n');
   put(`trailer\n<</Size ${total}/Root 1 0 R/Info 5 0 R>>\nstartxref\n${xo}\n%%EOF\n`);
   const u=URL.createObjectURL(new Blob(parts,{type:'application/pdf'})),a=document.createElement('a');
   a.href=u;a.download='jogo-da-memoria-cartas.pdf';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),6e4);
-  ms.textContent=`PDF pronto: ${NP} páginas com ${ks.length} cartas diferentes.`
+  ms.textContent=`PDF pronto: ${NP} páginas com ${ks.length} cartas diferentes, desenhos em vetor.`
  }catch(e){ms.textContent='Não foi possível gerar o PDF neste navegador.'}
  bt.disabled=false}
 $('#pfg').onclick=makePdf;

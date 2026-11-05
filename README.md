@@ -1,265 +1,163 @@
 
-# 🧠 Jogo da Memória Educativo — Desafio dos Pares
-
-<p align="center">
-  <strong>Aprender, descobrir e memorizar brincando!</strong>
-  <br>
-  Uma experiência interativa que combina diversão,
-  memória e aprendizagem em um só lugar.
-</p>
+# 🧠 Jogo da Memória Educativo
 
 <p align="center">
   <a href="https://eliseuangelos.github.io/jogo-da-memoria/">
-    <img src="https://img.shields.io/badge/▶_JOGAR_AGORA-7C4DFF?style=for-the-badge&logoColor=white" alt="Jogar agora">
+    <img src="https://img.shields.io/badge/JOGAR-ACESSAR_PROJETO-7c4dff?style=for-the-badge" alt="Acessar jogo">
+  </a>
+  <a href="https://github.com/eliseuangelos/jogo-da-memoria">
+    <img src="https://img.shields.io/badge/GitHub-Repositório-181717?style=for-the-badge&logo=github" alt="Repositório GitHub">
   </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/Responsivo-Sim-00C853?style=flat-square" alt="Responsivo">
-  <img src="https://img.shields.io/badge/Gratuito-Sim-12A066?style=flat-square" alt="Gratuito">
+  <strong>Aprender, brincar e desenvolver a memória!</strong>
 </p>
 
 ---
 
-## 🎮 Sobre o projeto
+## 📖 Sobre o projeto
 
-O **Jogo da Memória Educativo — Desafio dos Pares** é
-uma aplicação web interativa desenvolvida para estimular
-a memória, a atenção, o reconhecimento visual e a
-aprendizagem de letras, números e palavras.
+O **Jogo da Memória Educativo** é uma aplicação web interativa desenvolvida para crianças em fase de alfabetização.
 
-Com uma proposta educativa e uma interface colorida
-e intuitiva, o jogo permite que crianças explorem
-diferentes categorias de conhecimento enquanto
-desenvolvem suas habilidades de memorização.
+O projeto combina ilustrações, palavras, letras e números em uma experiência lúdica que estimula a memória, a atenção, a associação visual e o reconhecimento de elementos.
 
-A aplicação oferece diferentes quantidades de pares,
-temas visuais personalizáveis, efeitos sonoros,
-pronúncia em português brasileiro e recursos para
-imprimir e utilizar as cartas fora da tela.
+A aplicação oferece diferentes categorias, temas visuais, efeitos sonoros, pronúncia em português brasileiro e recursos para acompanhar o desempenho dos jogadores.
 
-Tudo isso diretamente no navegador, sem necessidade
-de instalação ou cadastro.
+O jogo foi desenvolvido para funcionar diretamente no navegador, sem necessidade de instalação.
 
-## 🚀 Acesse o jogo
-
-<p align="center">
-  <a href="https://eliseuangelos.github.io/jogo-da-memoria/">
-    <strong>ACESSAR JOGO DA MEMÓRIA →</strong>
-  </a>
-</p>
+🎮 **Jogue agora:**  
+https://eliseuangelos.github.io/jogo-da-memoria/
 
 ---
 
 ## ✨ Funcionalidades
 
-### 🧩 Categorias educativas
+### 🎯 Jogo e aprendizagem
 
-O jogador pode escolher entre diferentes categorias:
-
-| Categoria | Conteúdo |
-|---|---|
-| Todas | Reúne as categorias disponíveis |
-| Natureza | Elementos da natureza |
-| Animais | Diferentes animais |
-| Frutas e alimentos | Alimentos e frutas |
-| Transporte | Meios de transporte |
-| Diversos | Objetos e elementos variados |
-| Letras | Alfabeto de A a Z |
-| Números | Números de 0 a 100, incluindo dezenas |
-
-### 🎯 Personalização dos desafios
-
-- Seleção de 1 a 56 pares, respeitando a quantidade
-  de elementos disponíveis em cada categoria.
+- Seleção de quantidade de pares, de 1 a 56.
+- Diferentes categorias de cartas.
+- Ilustrações vetoriais acompanhadas de palavras.
+- Letras do alfabeto e números.
 - Embaralhamento automático das cartas.
-- Diferentes combinações a cada partida.
-- Tabuleiro com distribuição dinâmica.
-- Ajuste automático do tamanho e da disposição das cartas.
+- Identificação de pares correspondentes.
+- Sistema de ajuda para revelar pares.
+- Contagem de tempo, tentativas e pares encontrados.
+- Indicador de cartas restantes e revelações utilizadas.
 
-### 🎨 Temas visuais
+### 📚 Categorias disponíveis
 
-Três opções de apresentação:
+- Todas
+- Natureza
+- Animais
+- Frutas e alimentos
+- Transporte
+- Diversos
+- Letras
+- Números
 
-- **Infantil:** cores alegres, elementos lúdicos
-  e identidade visual divertida.
-- **Dia:** aparência clara e minimalista.
-- **Noite:** interface escura com contraste confortável.
+### 🎨 Personalização visual
 
-### 🔊 Sons e pronúncia
+- Tema Infantil.
+- Tema Dia.
+- Tema Noite.
+- Interface adaptável a computadores, tablets e celulares.
+- Grade de cartas dimensionada dinamicamente conforme o espaço disponível.
 
-- Efeitos sonoros ao virar as cartas.
-- Sons diferentes para acertos e erros.
-- Efeitos sonoros de conclusão.
-- Pronúncia dos nomes dos elementos encontrados.
-- Voz em português brasileiro (pt-BR).
-- Opções independentes para controlar som e voz.
+### 🔊 Recursos sonoros e de voz
 
-A pronúncia utiliza os recursos de síntese de voz
-disponíveis no navegador ou dispositivo.
+- Efeitos sonoros para as ações do jogo.
+- Controle para ativar ou desativar os sons.
+- Pronúncia dos nomes das cartas em português brasileiro.
+- Controle independente da narração.
 
-### 💡 Sistema de revelação
+A pronúncia utiliza os recursos de síntese de voz disponíveis no navegador.
 
-Recurso de ajuda para apresentar temporariamente
-um par ainda não encontrado.
+### 🏆 Sistema de recordes
 
-- Revelação das duas cartas correspondentes.
-- Destaque visual do par revelado.
-- Contador de revelações utilizadas.
+- Registro dos melhores resultados.
+- Classificação dos 10 melhores jogadores para cada quantidade de pares.
+- Identificação do jogador.
+- Comparação por tempo e número de tentativas.
+- Armazenamento local dos recordes.
+- Partidas que utilizam a função de revelação não são elegíveis para o ranking.
 
-Partidas que utilizam revelações não participam
-do placar de recordes.
-
-### ⏱️ Acompanhamento da partida
-
-Durante o jogo, o usuário acompanha:
-
-- Tempo decorrido.
-- Quantidade de tentativas.
-- Pares encontrados.
-- Cartas restantes.
-- Quantidade de revelações utilizadas.
-- Barra visual de progresso.
-
-### 🏆 Placar e recordes
-
-Sistema de classificação com os dez melhores
-resultados para cada quantidade de pares.
-
-Critérios de classificação:
-
-1. Menor tempo.
-2. Menor quantidade de tentativas.
-
-Os recordes são armazenados localmente no navegador,
-utilizando localStorage.
-
-Partidas que utilizam o recurso de revelação não
-são elegíveis para registro no placar.
-
-### 🖨️ Cartas para impressão em PDF
-
-O projeto também permite transformar o jogo digital
-em uma atividade física.
-
-Recursos disponíveis:
+### 🖨️ Impressão e exportação
 
 - Geração de cartas em PDF.
-- Formato de página A4.
+- Formato de impressão A4.
 - Cartas com dimensões de 6,2 × 7,5 cm.
-- Desenhos vetoriais em SVG.
-- Seleção das categorias desejadas.
-- Opção de gerar duas cartas de cada elemento.
-- Letras e números organizados em páginas próprias.
-
-### 📦 Exportação de desenhos SVG
-
-Permite baixar os desenhos das categorias selecionadas
-em um arquivo ZIP.
-
-Os arquivos SVG podem ser utilizados em outros
-projetos gráficos e atividades educativas.
+- Ilustrações vetoriais.
+- Possibilidade de gerar cartas duplicadas para atividades impressas.
+- Exportação das ilustrações em arquivos SVG compactados em ZIP.
 
 ---
 
-## 🧠 Objetivo educativo
+## 🎓 Objetivo educacional
 
-O projeto foi desenvolvido com a proposta de tornar
-a aprendizagem mais interativa e divertida.
+O projeto foi pensado para oferecer uma experiência de aprendizagem por meio da brincadeira.
 
-A associação entre imagens, letras, números e palavras
-permite explorar diferentes habilidades:
+Entre os objetivos estão:
 
-- Memorização.
-- Atenção e concentração.
-- Reconhecimento visual.
-- Associação de elementos.
-- Identificação de letras.
-- Reconhecimento de números.
-- Ampliação do vocabulário.
-
-A pronúncia dos elementos encontrados também
-oferece um estímulo complementar à aprendizagem
-e ao reconhecimento das palavras.
+- Estimular a memória e a concentração.
+- Desenvolver a percepção e a associação visual.
+- Incentivar o reconhecimento de letras e números.
+- Ampliar o contato com palavras e seus significados.
+- Associar imagens à pronúncia dos respectivos nomes.
+- Proporcionar atividades educativas também fora do ambiente digital, por meio das cartas impressas.
 
 ---
 
 ## 🛠️ Tecnologias utilizadas
 
-O projeto utiliza tecnologias nativas da web,
-sem depender de frameworks ou bibliotecas externas.
-
 | Tecnologia | Aplicação |
 |---|---|
-| HTML5 | Estrutura da aplicação |
-| CSS3 | Identidade visual, temas e animações |
-| JavaScript ES6+ | Lógica e interatividade |
-| CSS Grid | Organização adaptativa das cartas |
-| Flexbox | Distribuição dos elementos |
-| SVG | Ilustrações vetoriais das cartas |
-| Web Audio API | Efeitos sonoros |
-| Web Speech API | Pronúncia dos elementos |
-| localStorage | Armazenamento dos recordes |
-| ResizeObserver | Adaptação dinâmica do tabuleiro |
-| PDF e ZIP | Geração de materiais para impressão e exportação |
+| HTML5 | Estrutura da aplicação. |
+| CSS3 | Estilização, animações e responsividade. |
+| JavaScript | Lógica e funcionalidades do jogo. |
+| SVG | Ilustrações vetoriais das cartas. |
+| Web Audio API | Geração de efeitos sonoros. |
+| Web Speech API | Pronúncia dos nomes das cartas. |
+| localStorage | Armazenamento local de recordes e estatísticas. |
+| ResizeObserver | Acompanhamento do espaço disponível para dimensionamento da grade. |
 
 ---
 
-## 📱 Design responsivo
+## 📱 Responsividade
 
-A interface foi desenvolvida para funcionar em:
+A interface foi desenvolvida para se adaptar a diferentes tamanhos de tela.
 
-- Computadores.
-- Notebooks.
-- Tablets.
-- Smartphones.
+O dimensionamento da grade considera o espaço disponível, a quantidade de cartas e as proporções da área de jogo, evitando depender de uma quantidade fixa de colunas.
 
-O tabuleiro utiliza um sistema de dimensionamento
-adaptativo que considera a quantidade de cartas,
-o espaço disponível e a proporção dos elementos.
-
-O objetivo é manter as cartas legíveis e organizadas,
-mesmo em partidas com grandes quantidades de pares.
-
-Quando necessário, o layout permite rolagem vertical,
-preservando a usabilidade em telas menores.
+Em telas menores, a aplicação permite rolagem quando necessário, priorizando a visualização e a utilização das cartas.
 
 ---
 
-## 💻 Como executar localmente
+## 🔒 Privacidade e armazenamento
 
-O projeto não exige instalação de dependências
-ou configuração de backend.
+O jogo executa suas funcionalidades diretamente no navegador.
 
-### 1. Clonar o repositório
+- Não exige cadastro ou criação de conta.
+- Não utiliza servidor próprio para armazenar partidas.
+- Os recordes e estatísticas são armazenados localmente no navegador por meio do `localStorage`.
+- Os arquivos PDF, SVG e ZIP são gerados no próprio navegador.
+
+Os dados locais podem ser perdidos caso o armazenamento do navegador seja apagado ou os dados do site sejam removidos.
+
+---
+
+## ▶️ Como executar localmente
+
+1. Faça o download ou clone este repositório.
+2. Abra a pasta do projeto.
+3. Abra o arquivo `index.html` em um navegador atualizado.
+4. Escolha a categoria e a quantidade de pares.
+5. Clique em **JOGAR** e divirta-se!
+
+### Clonar o repositório
 
 ```bash
 git clone https://github.com/eliseuangelos/jogo-da-memoria.git
-```
-
-### 2. Acessar a pasta
-
-```bash
-cd jogo-da-memoria
-```
-
-### 3. Executar
-
-Abra o arquivo `index.html` diretamente no navegador.
-
-Também é possível utilizar um servidor HTTP local:
-
-```bash
-python3 -m http.server 8000
-```
-
-Acesse:
-
-```text
-http://localhost:8000
 ```
 
 ---
@@ -270,70 +168,39 @@ http://localhost:8000
 jogo-da-memoria/
 │
 └── index.html
-    ├── Estrutura HTML
-    ├── Estilização CSS
-    ├── Temas visuais
-    ├── Ilustrações SVG
-    ├── Lógica JavaScript
-    ├── Sistema de cartas
-    ├── Controle de partidas
-    ├── Placar e recordes
-    ├── Efeitos sonoros
-    ├── Pronúncia das palavras
-    ├── Geração de PDF
-    └── Exportação de SVG em ZIP
 ```
 
-O projeto utiliza uma arquitetura de arquivo único,
-reunindo HTML, CSS e JavaScript no mesmo documento.
+A aplicação concentra a estrutura HTML, os estilos CSS e a lógica JavaScript em um único arquivo.
 
 ---
 
-## 🔒 Privacidade e funcionamento
+## 🌐 Acesso ao projeto
 
-A aplicação executa suas funcionalidades diretamente
-no navegador.
+<p align="center">
+  <a href="https://eliseuangelos.github.io/jogo-da-memoria/">
+    <strong>🎮 Acessar o Jogo da Memória Educativo</strong>
+  </a>
+</p>
 
-- Não exige cadastro.
-- Não utiliza backend.
-- Não depende de banco de dados remoto.
-- Não envia recordes para servidores externos.
-- Armazena os recordes localmente no dispositivo.
-- Gera os materiais em PDF e ZIP no próprio navegador.
-
-A disponibilidade da pronúncia depende do suporte
-do navegador à tecnologia de síntese de voz.
+O projeto está publicado por meio do GitHub Pages.
 
 ---
 
 ## 👨‍💻 Desenvolvedor
 
-**ELISEU FERNANDES LAURINDO**
+**Eliseu Fernandes Laurindo**
 
-Projeto desenvolvido como parte de uma iniciativa
-de aprendizado, desenvolvimento web e criação
-de ferramentas digitais educativas.
+Desenvolvimento de projetos digitais e aplicações web, com interesse em tecnologia, programação e criação de soluções interativas.
 
-🌐 **Site pessoal e profissional:**
-
-https://eliseuangelos.github.io/eliseuangelos/
-
-💻 **GitHub:**
-
-https://github.com/eliseuangelos
-
-🎮 **Jogue agora:**
-
-https://eliseuangelos.github.io/jogo-da-memoria/
+- **GitHub:** https://github.com/eliseuangelos
+- **Site pessoal e profissional:** https://eliseuangelos.github.io/
 
 ---
 
 <p align="center">
-  <strong>JOGO DA MEMÓRIA — DESAFIO DOS PARES</strong>
-  <br>
-  <sub>Aprender brincando faz toda a diferença!</sub>
-  <br><br>
-  <sub>Desenvolvido por Eliseu Fernandes Laurindo.</sub>
-  <br>
-  <sub>© 2026 — Todos os direitos reservados.</sub>
+  <strong>Conhecimento, criatividade e tecnologia a serviço da aprendizagem.</strong>
+</p>
+
+<p align="center">
+  © 2026 Eliseu Fernandes Laurindo. Todos os direitos reservados.
 </p>

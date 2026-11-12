@@ -15,16 +15,6 @@
   </a>
 </p>
 
-<p align="center">
-  <a href="https://eliseuangelos.github.io/jogo-da-memoria/">🌐 ACESSAR O JOGO</a>
-  &nbsp;•&nbsp;
-  <a href="https://eliseuangelos.github.io/">SITE PESSOAL</a>
-  &nbsp;•&nbsp;
-  <a href="https://github.com/eliseuangelos">GITHUB</a>
-  &nbsp;•&nbsp;
-  <a href="https://linkedin.com/in/eliseu-fernandes-laurindo">LINKEDIN</a>
-</p>
-
 <p align="center"><strong>Aprender, brincar e desenvolver a memória.</strong></p>
 
 ---

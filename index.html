@@ -12,9 +12,10 @@
 <meta name="copyright" content="© 2026 Eliseu Fernandes Laurindo. Todos os direitos reservados.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="application-name" content="Jogo da Memória Educativo">
-<meta name="theme-color" content="#7c4dff">
+<meta name="theme-color" content="#F4F7FB">
 <link rel="canonical" href="https://eliseuangelos.github.io/jogo-da-memoria/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🃏%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jogo da Memória Educativo | Letras, Números e Palavras">
 <meta property="og:description" content="Jogo da memória educativo e gratuito para crianças em fase de alfabetização. Aprenda palavras, letras e números com imagens, sons e pronúncia em português.">
@@ -24,97 +25,14 @@
 <meta name="twitter:card" content="summary">
 <!-- Com uma imagem de divulgação (1200×630) hospedada, acrescente og:image, og:image:alt e twitter:image e use twitter:card=summary_large_image. -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://eliseuangelos.github.io/jogo-da-memoria/#website","url":"https://eliseuangelos.github.io/jogo-da-memoria/","name":"Jogo da Memória Educativo","description":"Jogo da memória educativo e gratuito para crianças em fase de alfabetização. Aprenda palavras, letras e números com imagens, sons e pronúncia em português.","inLanguage":"pt-BR","publisher":{"@id":"https://eliseuangelos.github.io/jogo-da-memoria/#autor"}},{"@type":"WebApplication","@id":"https://eliseuangelos.github.io/jogo-da-memoria/#app","name":"Jogo da Memória Educativo","alternateName":"Jogo da Memória — Desafio dos Pares","url":"https://eliseuangelos.github.io/jogo-da-memoria/","description":"Jogo da Memória Educativo é uma plataforma interativa para crianças em fase de alfabetização. Oferece diferentes modalidades de jogo, associação de imagens, letras, números e palavras, além da opção de pronúncia em português brasileiro. Uma maneira divertida de estimular a memória, a atenção, o reconhecimento visual e o aprendizado de novas palavras.","inLanguage":"pt-BR","applicationCategory":"EducationalApplication","applicationSubCategory":"Jogo da memória","operatingSystem":"Qualquer sistema com navegador web","browserRequirements":"Requer JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"audience":{"@type":"EducationalAudience","audienceType":"Crianças em fase de alfabetização"},"educationalUse":"Jogo educativo","learningResourceType":"Jogo educativo","teaches":"Letras, números e palavras em português; memória, atenção e reconhecimento visual","featureList":["Categorias: Natureza, Animais, Frutas e alimentos, Transporte, Diversos, Letras e Números","Pronúncia em português brasileiro ao encontrar cada par","Placar dos 10 melhores por quantidade de pares","Temas infantil, dia e noite","Cartas em PDF para imprimir e desenhos em SVG (ZIP) para baixar"],"author":{"@id":"https://eliseuangelos.github.io/jogo-da-memoria/#autor"},"creator":{"@id":"https://eliseuangelos.github.io/jogo-da-memoria/#autor"},"publisher":{"@id":"https://eliseuangelos.github.io/jogo-da-memoria/#autor"},"copyrightHolder":{"@id":"https://eliseuangelos.github.io/jogo-da-memoria/#autor"},"copyrightYear":2026,"isPartOf":{"@id":"https://eliseuangelos.github.io/jogo-da-memoria/#website"}},{"@type":"Person","@id":"https://eliseuangelos.github.io/jogo-da-memoria/#autor","name":"Eliseu Fernandes Laurindo","url":"https://eliseuangelos.github.io"}]}</script>
-<style>
-/* Temas via variáveis CSS: Infantil (padrão), Dia e Noite */
-:root{--fg:#3b2f4a;--card:#fff;--back:#7c4dff;--bq:#fff;--ol:#4a3b5c;--ac:#e8336f;--ac2:#2bb3ff;--on:#fff;--ok:#12a066;--sh:0 4px 0 #3b2f4a2e;--r:16px;--bgi:radial-gradient(circle at 8% 12%,#ffe58f 0 70px,#0000 72px),radial-gradient(circle at 94% 78%,#a5deff 0 100px,#0000 102px),linear-gradient(160deg,#fff4d6,#ffd9ec)}
-body[data-t=day]{--fg:#1f2933;--back:#dbe3ec;--bq:#64748b;--ol:#475569;--ac:#2563eb;--ac2:#64748b;--sh:0 1px 4px #0003;--r:10px;--bgi:linear-gradient(#f8fafc,#eef2f7)}
-body[data-t=night]{--fg:#e5e9f2;--card:#2b303b;--back:#3a4152;--bq:#94a3b8;--ol:#cbd5e1;--ac:#22d3ee;--ac2:#a78bfa;--on:#0b1220;--ok:#34d399;--sh:0 2px 8px #0008;--r:10px;--bgi:linear-gradient(#0f1218,#1a1f2b)}
-body[data-t=night] .fr{--card:#fff;--ol:#4a3b5c;--ok:#12a066;color:#3b2f4a}
-body{-webkit-user-select:none;user-select:none;cursor:default;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;caret-color:transparent}
-input{-webkit-user-select:text;user-select:text;cursor:text;caret-color:auto}
-*{box-sizing:border-box}
-[hidden]{display:none!important}
-html,body{height:100%;margin:0}
-body{height:100dvh;display:flex;flex-direction:column;font:16px/1.3 system-ui,"Segoe UI",Arial,sans-serif;color:var(--fg);background:var(--bgi);padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
-button{font:inherit;color:inherit;cursor:pointer;border:0;border-radius:99px;padding:8px 16px;min-height:44px;background:var(--card);box-shadow:var(--sh);transition:transform .15s,background .2s,opacity .2s}
-button:hover{transform:translateY(-2px)}button:active{transform:none}
-button:focus-visible,a:focus-visible{outline:3px solid var(--ac2);outline-offset:2px}
-button:disabled{opacity:.45;cursor:not-allowed;transform:none}
-.pri,[aria-pressed=true]{background:var(--ac);color:var(--on);font-weight:800}
-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px;padding:8px 12px}
-h1{margin:0;font-size:clamp(17px,4.6vw,26px);line-height:1.05}h1 small{display:block;font-size:.55em;opacity:.8}
-nav{display:flex;flex-wrap:wrap;gap:6px}nav button{min-height:38px;padding:4px 11px;font-size:13px}
-h2{font-size:1rem;margin:14px 0 6px}
-#setup{flex:1;overflow:auto;width:100%;max-width:900px;margin:0 auto;padding:4px 12px 60px}
-#cats{display:flex;flex-wrap:wrap;gap:6px}
-#nums{display:grid;grid-template-columns:repeat(auto-fill,minmax(50px,1fr));gap:6px}#nums button{padding:0}
-#game{flex:1;min-height:0;display:flex;flex-direction:column}
-#hud{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 16px;padding:4px 10px;font-size:14px}
-#pg{height:8px;margin:2px 12px 6px;border-radius:9px;background:#8883;overflow:hidden}
-#pg i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width .4s}
-#area{flex:1;min-height:0;display:flex;width:100%;max-width:1400px;margin:0 auto;overflow-x:hidden;overflow-y:auto}
-#ft{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:8px 48px 8px 12px}
-/* Grade: colunas/tamanho calculados em JS (layout) */
-#grid{display:grid;grid-template-columns:repeat(var(--c,1),var(--w,80px));grid-auto-rows:var(--h,96px);gap:var(--g,8px);padding:var(--g,8px);margin:auto}
-.card{padding:0;min-height:0;border-radius:var(--r);background:none;box-shadow:none;perspective:700px;font-size:max(10px,calc(var(--w)*.125))}
-.card:hover{transform:none}
-.in{position:relative;display:block;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s}
-.on .in{transform:rotateY(180deg)}
-.f{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;border-radius:var(--r);box-shadow:var(--sh);backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.bk{background:radial-gradient(circle at 30% 25%,#fff5,#0000 45%),var(--back);color:var(--bq);font-size:calc(var(--w)*.45);font-weight:900}
-.fr{background:var(--card);transform:rotateY(180deg)}
-.fr svg{width:82%;height:auto;color:var(--ol)}
-.fr b{margin-top:2px;line-height:1.1;white-space:nowrap}
-.mini .fr b{display:none}.mini .fr svg{width:90%}
-.done .fr{box-shadow:0 0 0 3px var(--ok),var(--sh)}
-.bad .fr{box-shadow:0 0 0 3px #e5484d}
-.done .fr::after,.bad .fr::after{position:absolute;top:1px;right:5px;font-weight:900}
-.done .fr::after{content:"✓";color:var(--ok)}.bad .fr::after{content:"✗";color:#e5484d}
-.done .in{animation:pop .5s .4s}.bad .in{animation:sh .45s .45s}
-.hint .fr{box-shadow:0 0 0 4px var(--ac),0 0 22px var(--ac);animation:glow .7s infinite alternate}
-.ov{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:16px;background:#0008}
-.pn{width:100%;max-width:380px;padding:20px;border-radius:20px;background:var(--card);box-shadow:var(--sh);text-align:center;animation:pop2 .3s}
-.pn ol{text-align:left;padding-left:22px}.pn a{color:var(--ac);word-break:break-all}
-#q{position:fixed;right:max(8px,env(safe-area-inset-right));bottom:max(8px,env(safe-area-inset-bottom));width:32px;height:32px;min-height:0;padding:0;border-radius:50%;background:none;box-shadow:none;opacity:.2}
-#q:hover,#q:focus-visible{opacity:1}
-.fr svg{filter:drop-shadow(0 2px 1.5px #0003)}
-.bt{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
-.pn input,.pn select{font:inherit;max-width:100%;padding:8px 12px;border:2px solid var(--ol);border-radius:12px;background:var(--card);color:var(--fg)}
-.pn input{width:240px;margin:4px 0 8px;text-align:center}
-#pl .pn,#pf .pn{max-width:440px;max-height:92dvh;overflow:auto}
-#pfl{display:grid;gap:8px;max-width:270px;margin:12px auto;text-align:left}#pf label{cursor:pointer}.pn input[type=checkbox]{width:20px;height:20px;margin:0 8px 0 0;vertical-align:-4px;cursor:pointer;accent-color:var(--ac)}
-#pt table{width:100%;margin-top:10px;border-collapse:collapse;font-size:14px}#pt th,#pt td{padding:6px 4px;border-bottom:1px solid #8884}#pt td:nth-child(2){text-align:left;overflow-wrap:anywhere}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.cf{position:fixed;top:-16px;width:9px;height:14px;z-index:30;pointer-events:none;animation:fall 3s linear forwards}
-@keyframes pop{50%{transform:rotateY(180deg) scale(1.12)}}
-@keyframes sh{25%,75%{transform:rotateY(180deg) translateX(-6px)}50%{transform:rotateY(180deg) translateX(6px)}}
-@keyframes glow{to{filter:brightness(1.12)}}
-@keyframes pop2{from{transform:scale(.85);opacity:0}}
-@keyframes fall{to{transform:translateY(105vh) rotate(720deg)}}
-/* ícones Som/Voz (celular) e menu compacto durante a partida */
-.ic,.x,#mn,#cb{display:none}.ic{pointer-events:none}.ib[aria-pressed=false] .x{display:inline}.ib[aria-pressed=false] .w{display:none}.ib[aria-pressed=false] .ic{opacity:.5}
-@media(max-width:700px),(max-height:500px){
- #q{display:none}nav button{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}#cb{display:inline-flex}
- .ib .tx{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
- nav .ib{display:inline-flex;align-items:center;justify-content:center;min-width:42px;padding:0}.ib .ic{display:block}
- body.ing{display:grid;grid-template-columns:auto 1fr auto auto;grid-template-rows:auto auto auto minmax(0,1fr);column-gap:6px}
- body.ing header{grid-area:1/1;padding:4px 0 4px 8px}body.ing h1{display:none}
- body.ing #mn{display:inline-flex;align-items:center;justify-content:center;min-width:44px;padding:0}
- body.ing #game,body.ing #ft{display:contents}
- body.ing #rv,body.ing #ng{align-self:center;min-height:40px;padding:4px 12px;font-size:13px}
- body.ing #rv{grid-area:1/3}body.ing #ng{grid-area:1/4;margin-right:8px}
- body.ing #hud{grid-area:2/1/3/-1;gap:0 10px;padding:0 8px;font-size:12px}body.ing #hud span:nth-child(4){display:none}
- body.ing #pg{grid-area:3/1/4/-1;height:5px;margin:3px 10px 4px}
- body.ing #area{grid-area:4/1/5/-1;align-self:stretch}
- body.ing #tb{display:none;position:fixed;z-index:25;top:calc(env(safe-area-inset-top) + 52px);left:max(8px,env(safe-area-inset-left));flex-wrap:wrap;gap:6px;width:min(300px,calc(100vw - 16px));padding:10px;border-radius:16px;background:var(--card);box-shadow:0 8px 28px #0007}
- body.ing #tb.open{display:flex}
-}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style>
+<script src="assets/js/theme-init.js"></script>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/game.css">
+<link rel="stylesheet" href="assets/vendor/day-night/day-night.css">
 </head>
-<body data-t="kids">
-<header><button id="mn" aria-label="Menu" aria-expanded="false" aria-controls="tb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><h1>Jogo da Memória<small>Desafio dos Pares</small></h1>
-<nav id="tb" aria-label="Opções"><button data-t="kids" aria-pressed="true">Infantil</button><button data-t="day" aria-pressed="false">Dia</button><button data-t="night" aria-pressed="false">Noite</button><button id="snd" class="ib" aria-pressed="true"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5l4.5 4v-13l-4.5 4z"/><path class="w" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="x" d="M16.5 9.5l5 5M21.5 9.5l-5 5"/></svg><span class="tx">Som: sim</span></button><button id="vz" class="ib" aria-pressed="true" title="Voz que fala o nome ao achar o par"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(-1 1.6) scale(.85)"><path d="M2.5 12c3-3.5 5.5-4.5 9.5-2.5 4-2 6.5-1 9.5 2.5-3 5-6 6.5-9.5 6.5S5.5 17 2.5 12z"/><path d="M3 12.2h18"/></g><path class="w" d="M19 9.5a3.5 3.5 0 0 1 0 5M21.5 7.5a7 7 0 0 1 0 9"/><path class="x" d="M18.5 9.5l4.5 5M23 9.5l-4.5 5"/></svg><span class="tx">Voz: sim</span></button><button id="pdf">Baixar cartas</button><button id="pb">Placar</button><button id="hp">Ajuda</button><button id="cb">Créditos</button></nav></header>
+<body>
+<header><button id="mn" aria-label="Menu" aria-expanded="false" aria-controls="tb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><div class="brand"><img src="assets/icons/brand-symbol.svg" alt="" width="36" height="36"><h1>Jogo da Memória<small>Desafio dos Pares</small></h1></div>
+<nav id="tb" aria-label="Opções"><button id="snd" class="ib" aria-pressed="true"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5l4.5 4v-13l-4.5 4z"/><path class="w" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="x" d="M16.5 9.5l5 5M21.5 9.5l-5 5"/></svg><span class="tx">Som: sim</span></button><button id="vz" class="ib" aria-pressed="true" title="Voz que fala o nome ao achar o par"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(-1 1.6) scale(.85)"><path d="M2.5 12c3-3.5 5.5-4.5 9.5-2.5 4-2 6.5-1 9.5 2.5-3 5-6 6.5-9.5 6.5S5.5 17 2.5 12z"/><path d="M3 12.2h18"/></g><path class="w" d="M19 9.5a3.5 3.5 0 0 1 0 5M21.5 7.5a7 7 0 0 1 0 9"/><path class="x" d="M18.5 9.5l4.5 5M23 9.5l-4.5 5"/></svg><span class="tx">Voz: sim</span></button><button id="pdf">Baixar cartas</button><button id="pb">Placar</button><button id="hp">Ajuda</button><button id="cb">Créditos</button></nav><div id="dn-slot"></div></header>
 <noscript><p style="text-align:center;padding:16px">O Jogo da Memória Educativo precisa do JavaScript ativado para funcionar. Ative-o no navegador e recarregue a página.</p></noscript>
 <main id="setup"><h2>Categoria</h2><div id="cats"></div><h2>Quantos pares?</h2><div id="nums"></div>
 <p id="pre" aria-live="polite"></p><p id="rec"></p>
@@ -125,12 +43,13 @@ h2{font-size:1rem;margin:14px 0 6px}
 <div id="area"><div id="grid" role="group" aria-label="Cartas do jogo"></div></div>
 <div id="ft"><button id="rv"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="vertical-align:-4px"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> REVELAR</button><button id="ng" class="pri">NOVO JOGO</button></div>
 </section>
+<footer class="site-footer"><p><span>Desenvolvido por <a href="https://eliseuangelos.github.io/" target="_blank" rel="noopener noreferrer">Eliseu Fernandes Laurindo</a></span> <span>© <span data-current-year>2026</span> Eliseu Fernandes Laurindo. Todos os direitos reservados.</span></p></footer>
 <div id="live" class="sr" aria-live="polite"></div>
 <div id="win" class="ov" hidden role="dialog" aria-modal="true" aria-labelledby="wt"><div class="pn"><h2 id="wt">Parabéns, você venceu!</h2><p id="ws"></p><form id="nf" autocomplete="off"><label>Seu nome para o placar<br><input id="nm" maxlength="16" placeholder="Digite seu nome"></label><br><button class="pri">SALVAR</button></form><p id="ns" aria-live="polite"></p><div class="bt"><button class="pri" id="ng2">NOVO JOGO</button><button data-x>FECHAR</button></div></div></div>
 <div id="pf" class="ov" hidden role="dialog" aria-modal="true" aria-label="Baixar cartas"><div class="pn"><h2>Baixar cartas</h2><p>Escolha as categorias. O <b>PDF</b> serve para imprimir e jogar longe da tela: só a frente das cartas (desenho e nome), em páginas A4 com cartas de 6,2 × 7,5 cm, e letras e números em páginas separadas. O <b>ZIP</b> traz um arquivo SVG (vetor) para cada desenho.</p><div id="pfl"></div><p><label><input type="checkbox" id="pfp" checked>PDF: gerar pares (2 cartas de cada)</label></p><p id="pfs" aria-live="polite"></p><div class="bt"><button class="pri" id="pfg">Gerar PDF</button><button id="pfz">Baixar SVG (.zip)</button><button data-x>Fechar</button></div></div></div>
 <div id="pl" class="ov" hidden role="dialog" aria-modal="true" aria-label="Placar"><div class="pn"><h2>Placar</h2><select id="ps" aria-label="Quantidade de pares"></select><div id="pt"></div><p><small>Ordem: menor tempo, depois menos tentativas. Partidas com REVELAR não entram.</small></p><div class="bt"><button id="pc">Limpar placar</button><button class="pri" data-x>Fechar</button></div></div></div>
 <div id="help" class="ov" hidden role="dialog" aria-modal="true" aria-label="Como jogar"><div class="pn"><h2>Como jogar</h2><ol><li>Escolha a quantidade de pares.</li><li>Clique em uma carta para revelar o desenho.</li><li>Encontre outra carta igual.</li><li>Use REVELAR quando precisar de ajuda (partidas com REVELAR não entram no placar).</li><li>A voz fala o nome ao achar o par (dá para desligar no botão Voz).</li><li>Complete todos os pares para vencer!</li></ol><button class="pri" data-x>Entendi</button></div></div>
-<div id="cr" class="ov" hidden role="dialog" aria-modal="true" aria-label="Créditos"><div class="pn"><h2>Jogo da Memória Educativo</h2><p>Plataforma interativa para crianças em fase de alfabetização: associação de imagens, letras, números e palavras, com pronúncia em português brasileiro para estimular memória, atenção e reconhecimento visual.</p><p>Desenvolvido por:<br><b>eliseuangelos</b></p><p><a href="https://eliseuangelos.github.io" target="_blank" rel="noopener">https://eliseuangelos.github.io</a></p><p><small>© 2026 Eliseu Fernandes Laurindo. Todos os direitos reservados.</small></p><button class="pri" data-x>Fechar</button></div></div>
+<div id="cr" class="ov" hidden role="dialog" aria-modal="true" aria-label="Créditos"><div class="pn"><h2>Jogo da Memória Educativo</h2><p>Plataforma interativa para crianças em fase de alfabetização: associação de imagens, letras, números e palavras, com pronúncia em português brasileiro para estimular memória, atenção e reconhecimento visual.</p><p>Desenvolvido por <a href="https://eliseuangelos.github.io/" target="_blank" rel="noopener noreferrer">Eliseu Fernandes Laurindo</a></p><p><small>© <span data-current-year>2026</span> Eliseu Fernandes Laurindo. Todos os direitos reservados.</small></p><button class="pri" data-x>Fechar</button></div></div>
 <button id="q" aria-label="Créditos">?</button>
 <script>
 (()=>{'use strict';
@@ -311,7 +230,7 @@ function win(s){
  if(nt)r.t[s.n]=s.sec;if(na)r.a[s.n]=s.tries;wr(r);
  $('#ws').innerHTML=`Tempo: <b>${fmt(s.sec)}</b> · Tentativas: <b>${s.tries}</b> · Revelações: <b>${s.rv}</b><br>Pares encontrados: <b>${s.n}</b><br>${nt||na?'Novo recorde pessoal!':'Você tem uma ótima memória!'}`;
  $('#nf').hidden=!!s.rv;$('#nm').value='';$('#ns').textContent=s.rv?'Partidas com REVELAR não entram no placar.':'';$('#win').hidden=false;$('#ng2').focus();FX.win();confetti();say('Parabéns! Você encontrou todos os pares.')}
-function confetti(){const c=['#e8336f','#ffd93d','#2bb3ff','#12a066','#a78bfa'];
+function confetti(){const c=['#2563EB','#0B7E82','#1D4263','#83B4FF','#68CBC2'];
  for(let i=0;i<50;i++){const d=document.createElement('i');d.className='cf';d.style.cssText=`left:${Math.random()*100}vw;background:${c[i%5]};animation-delay:${Math.random()*.8}s;animation-duration:${2+Math.random()*2}s`;document.body.appendChild(d);setTimeout(()=>d.remove(),5000)}}
 function menu(){if(st)clearInterval(st.iv);if(SS)SS.cancel();st=null;$('#win').hidden=true;$('#game').hidden=true;$('#setup').hidden=false;document.body.classList.remove('ing');cm();$$('.cf').forEach(x=>x.remove());upd()}
 $('#ng').onclick=$('#ng2').onclick=menu;$('#go').onclick=start;
@@ -494,8 +413,7 @@ $('#pfz').onclick=zipSvg;
 /* ===== Temas, som, ajuda, créditos ===== */
 function cm(){$('#tb').classList.remove('open');$('#mn').setAttribute('aria-expanded','false')}
 $('#tb').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(/^(pb|hp|cb|pdf)$/.test(b.id))cm();
- if(b.dataset.t){document.body.dataset.t=b.dataset.t;$$('#tb [data-t]').forEach(x=>x.setAttribute('aria-pressed',x==b))}
- else if(b.id=='snd'){sOn=!sOn;b.setAttribute('aria-pressed',sOn);b.querySelector('.tx').textContent=sOn?'Som: sim':'Som: não'}
+ if(b.id=='snd'){sOn=!sOn;b.setAttribute('aria-pressed',sOn);b.querySelector('.tx').textContent=sOn?'Som: sim':'Som: não'}
  else if(b.id=='vz'){vOn=!vOn;b.setAttribute('aria-pressed',vOn);b.querySelector('.tx').textContent=vOn?'Voz: sim':'Voz: não';if(!vOn&&SS)SS.cancel()}
  else if(b.id=='pdf'){openPdf()}
  else if(b.id=='cb'){$('#cr').hidden=false}
@@ -510,5 +428,12 @@ try{if(!localStorage.getItem('memoria-tut')){localStorage.setItem('memoria-tut',
 upd();
 })();
 </script>
+<script src="assets/vendor/day-night/day-night.js"></script>
+<script>
+document.querySelectorAll('[data-current-year]').forEach(function(e){e.textContent=String(new Date().getFullYear())});
+if(window.DayNight){DayNight.init({mode:'cinematic',speed:'normal',rotation:true,clouds:true,target:'#dn-slot',size:40,persistence:true,storageKey:'dn-theme',respectSystem:true})}
+else console.warn('DAY & NIGHT: copie component/day-night.js e day-night.css para assets/vendor/day-night/')
+</script>
+<script src="assets/js/theme-meta.js"></script>
 </body>
 </html>

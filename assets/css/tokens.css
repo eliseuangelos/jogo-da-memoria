@@ -1,0 +1,31 @@
+/* EXECUTIVE DIGITAL — tokens (DESIGN-SYSTEM v2.0, seção 4) + tokens do jogo. Cores só aqui. */
+:root,:root[data-theme="light"]{
+  color-scheme:light;
+  --color-background:#F4F7FB;--color-surface:#FFFFFF;--color-surface-secondary:#E9EFF5;
+  --color-text:#162638;--color-text-secondary:#526579;--color-border:#D5DEE8;
+  --color-primary:#1D4263;--color-action:#2563EB;--color-accent:#0B7E82;--color-focus:#2563EB;
+  --color-shadow:0 10px 30px rgba(22,38,56,.08);--color-theme-meta:#F4F7FB;
+  /* estados e jogo (declarados nos dois temas) */
+  --color-on-action:#FFFFFF;--color-danger:#B42318;--color-overlay:rgba(22,38,56,.55);
+  --shadow-control:0 1px 2px rgba(22,38,56,.16);
+  --card-back:#1D4263;--card-back-ink:#FFFFFF;--card-back-line:#1D4263;
+  /* cartas: iguais nos dois temas (ilustrações preservadas) */
+  --card-face:#FFFFFF;--card-text:#3B2F4A;--card-ink:#4A3B5C;--card-ok:#0B7E82;--card-bad:#B42318;
+  /* tipografia, raios, espaço e movimento */
+  --font-sans:"Inter","Manrope",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+  --page-gutter:20px;
+  --radius-small:8px;--radius-medium:12px;--radius-large:18px;--radius-pill:999px;
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-8:32px;
+  --motion-fast:180ms;--motion-standard:280ms;--motion-emphasis:420ms;--ease-standard:cubic-bezier(.2,.7,.2,1);
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --color-background:#111C28;--color-surface:#1B2A3A;--color-surface-secondary:#24364A;
+  --color-text:#EDF3F8;--color-text-secondary:#B7C5D3;--color-border:#3A4D60;
+  --color-primary:#91B7D8;--color-action:#83B4FF;--color-accent:#68CBC2;--color-focus:#83B4FF;
+  --color-shadow:0 12px 32px rgba(0,0,0,.22);--color-theme-meta:#111C28;
+  --color-on-action:#111C28;--color-danger:#FF8F85;--color-overlay:rgba(8,14,22,.7);
+  --shadow-control:0 1px 2px rgba(0,0,0,.4);
+  --card-back:#24364A;--card-back-ink:#91B7D8;--card-back-line:#91B7D8;
+}

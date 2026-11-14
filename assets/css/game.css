@@ -100,11 +100,13 @@ html{background:var(--color-background)}
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    margin-top: 5px;
   }
 
   body:not(.ing) #dn-slot {
     grid-column: 2;
     justify-self: end;
     width: 100%;
+    float: top-right;
   }
 }

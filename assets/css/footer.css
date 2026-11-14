@@ -1,0 +1,7 @@
+/* Footer: créditos e autoria (antes no botão flutuante "?"). */
+.site-footer{padding:var(--space-3) var(--page-gutter);background:var(--color-surface);border-top:1px solid var(--color-border);color:var(--color-text-secondary);font-size:.8125rem;line-height:1.5;transition:background-color var(--motion-standard) var(--ease-standard),border-color var(--motion-standard) var(--ease-standard)}
+.footer-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-2) var(--space-6);max-width:1400px;margin:0 auto}
+.footer-about{flex:1 1 360px;min-width:0}.footer-about strong{color:var(--color-text);font-weight:600}
+.footer-about p,.footer-credits p{margin:0}.footer-credits{text-align:right}
+.site-footer a{color:var(--color-action);text-decoration:underline;text-underline-offset:2px}
+@media (max-width:700px){.footer-credits{flex-basis:100%;text-align:left}}

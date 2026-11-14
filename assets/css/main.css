@@ -1,0 +1,8 @@
+/* EXECUTIVE DIGITAL — ponto de entrada. A ordem das importações importa. */
+@import url("tokens.css");
+@import url("base.css");
+@import url("header.css");
+@import url("footer.css");
+@import url("game.css");
+@import url("components.css");
+@import url("responsive.css");

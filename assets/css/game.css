@@ -88,9 +88,23 @@ html{background:var(--color-background)}
 .site-footer a{color:var(--color-action);text-decoration:underline;text-underline-offset:2px}
 @media(max-width:700px),(max-height:500px){body.ing header{background:none;border:0}body.ing .brand,body.ing .site-footer{display:none}}
 @media (max-width:700px) {
-  #tb {
-    width: 85%;
-    max-width: 85%;
+  body:not(.ing) header {
+    display: grid;
+    grid-template-columns: 85% 15%;
+    align-items: center;
+    gap: 0;
+  }
+
+  body:not(.ing) #tb {
+    grid-column: 1;
+    width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
+  }
+
+  body:not(.ing) #dn-slot {
+    grid-column: 2;
+    justify-self: end;
+    width: 100%;
   }
 }

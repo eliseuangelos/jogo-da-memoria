@@ -115,6 +115,36 @@ O jogo foi pensado para apoiar atividades de aprendizagem por meio da brincadeir
 | ResizeObserver | Observação do espaço disponível para dimensionar a grade. |
 | GitHub Pages | Hospedagem estática da aplicação. |
 
+## Estrutura do projeto
+
+```text
+jogo-da-memoria/
+├── index.html                  # Somente HTML: header, tela inicial, tabuleiro, rodapé e janelas
+├── README.md
+└── assets/
+    ├── css/
+    │   ├── main.css            # Ponto de entrada (importa os módulos, na ordem)
+    │   ├── tokens.css          # Variáveis EXECUTIVE DIGITAL (cores, tipografia, espaços, movimento)
+    │   ├── base.css            # Reset, tipografia, botões, foco e utilitários
+    │   ├── header.css          # Marca, navegação e alternador Day/Night
+    │   ├── footer.css          # Rodapé com créditos e autoria
+    │   ├── game.css            # Tela inicial, HUD, tabuleiro e cartas
+    │   ├── components.css      # Janelas, formulários, placar e confete
+    │   └── responsive.css      # Ponto único de compactação e modo de partida
+    ├── js/
+    │   ├── theme-init.js       # Aplica o tema antes da renderização (evita flash)
+    │   ├── drawings.js         # 56 desenhos SVG, letras, números e categorias
+    │   ├── export.js           # Cartas em PDF vetorial e ZIP de SVGs
+    │   ├── game.js             # Regras, sons, voz, recordes, placar e menus
+    │   └── theme.js            # Cor da barra do navegador e alternador Day/Night
+    ├── icons/                  # favicon, símbolo da marca e apple-touch-icon
+    └── vendor/day-night/       # Componente DAY & NIGHT EXPERIENCE v1.3.0
+```
+
+**Ordem dos scripts:** `day-night.js`, `drawings.js`, `export.js`, `game.js`, `theme.js` (todos com `defer`). `drawings.js` publica `window.Memoria` (`DR`, `CATS`, `svg`) e `export.js` acrescenta `openPdf`.
+
+**Créditos:** ficam no rodapé (`#creditos`). Na tela de partida em telas compactas o rodapé é ocultado para dar espaço ao tabuleiro e reaparece ao voltar para a tela inicial.
+
 ## Privacidade e armazenamento
 
 O jogo executa suas funcionalidades diretamente no navegador e não exige cadastro ou conta. Os recordes e as estatísticas são armazenados localmente por meio do `localStorage`. Os arquivos PDF, SVG e ZIP são gerados no próprio navegador.
@@ -137,7 +167,12 @@ git clone https://github.com/eliseuangelos/jogo-da-memoria.git
 cd jogo-da-memoria
 ```
 
-A aplicação atual concentra a estrutura, os estilos e a lógica em `index.html`. Abra o arquivo em um navegador atualizado ou utilize um servidor HTTP local para testar a experiência.
+Não há etapa de build nem backend. Como os arquivos usam caminhos relativos, o projeto funciona na raiz ou em um subdiretório (como no GitHub Pages). Para testar localmente, utilize um servidor HTTP estático:
+
+```bash
+python3 -m http.server 8000
+# abra http://localhost:8000/
+```
 
 ## Sobre o autor
 

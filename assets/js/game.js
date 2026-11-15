@@ -19,7 +19,7 @@ const FX={flip:()=>tone(520,.08,'triangle'),ok:()=>{tone(660,.12);tone(880,.2,'s
 /* ===== Voz em português do Brasil (Web Speech): fala o nome só ao achar o par ===== */
 const SS=window.speechSynthesis,LN='á bê cê dê é éfe gê agá i jóta cá éle ême êne ó pê quê érre ésse tê u vê dáblio xis ípsilon zê'.split(' ');
 const VZ=(window.MemoriaVozes&&window.MemoriaVozes.arquivos)||{},VD='assets/sounds/voz/',TV=Object.keys(VZ).length>0; // falas em áudio (opcionais; ver tools/gerar-vozes.py)
-const RATE=.7; // velocidade da voz do navegador, usada como reserva (1 = normal; menor = mais devagar)
+const RATE=.6; // velocidade da voz do navegador, usada como reserva (1 = normal; menor = mais devagar)
 let vOn=!!SS||TV,vc=null,vu=false,au=null;
 if(!SS&&!TV)$('#vz').hidden=true;
 const SIL='data:audio/wav;base64,UklGRrQBAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YZABAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA';

@@ -18,18 +18,28 @@ const FX={flip:()=>tone(520,.08,'triangle'),ok:()=>{tone(660,.12);tone(880,.2,'s
 
 /* ===== Voz em português do Brasil (Web Speech): fala o nome só ao achar o par ===== */
 const SS=window.speechSynthesis,LN='á bê cê dê é éfe gê agá i jóta cá éle ême êne ó pê quê érre ésse tê u vê dáblio xis ípsilon zê'.split(' ');
-let vOn=!!SS,vc=null,vu=false;
-if(!SS)$('#vz').hidden=true;
-const unlockV=()=>{if(vu||!SS)return;vu=true;try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;SS.speak(u)}catch(e){}}; // libera a fala no 1º toque (iOS)
+const VZ=(window.MemoriaVozes&&window.MemoriaVozes.arquivos)||{},VD='assets/sounds/voz/',TV=Object.keys(VZ).length>0; // falas em áudio (opcionais; ver tools/gerar-vozes.py)
+const RATE=.7; // velocidade da voz do navegador, usada como reserva (1 = normal; menor = mais devagar)
+let vOn=!!SS||TV,vc=null,vu=false,au=null;
+if(!SS&&!TV)$('#vz').hidden=true;
+const SIL='data:audio/wav;base64,UklGRrQBAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YZABAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA';
+const unlockV=()=>{if(vu)return;vu=true;if(SS)try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;SS.speak(u)}catch(e){}if(TV){au=au||new Audio();au.src=SIL;const p=au.play();if(p)p.catch(()=>{})}}; // libera a fala e o áudio no 1º toque (iOS)
 function voz(){ // prefere voz pt-BR feminina e natural; senão, a primeira pt-BR
  if(vc)return vc;
  const sc=v=>(/francisca|luciana|maria|vit[oó]ria|fernanda|camila|helo[ií]sa|thalita|giovanna|brenda|leila|google|feminin|\bfemale\b/i.test(v.name)?2:0)+(/natural|neural|online/i.test(v.name)?1:0)-(/daniel|ant[oô]nio|felipe|ricardo|thiago|jorge|masculin|\bmale\b/i.test(v.name)?3:0);
  return vc=SS.getVoices().filter(v=>/pt[-_]BR/i.test(v.lang)).sort((a,b)=>sc(b)-sc(a))[0]||null}
-function speak(k){
- if(!SS||!vOn||!sOn)return;
+function parar(){if(au)au.pause();if(SS)SS.cancel()}
+function falar(k){ // reserva: voz de síntese do navegador, em velocidade reduzida
+ if(!SS)return;
  const u=new SpeechSynthesisUtterance(k>55&&k<82?LN[k-56]:DR[k][0].toLowerCase()),v=voz();
- u.lang='pt-BR';if(v)u.voice=v;u.rate=.9;u.pitch=1.15;
+ u.lang='pt-BR';if(v)u.voice=v;u.rate=RATE;u.pitch=1.15;
  if(SS.speaking||SS.pending){SS.cancel();setTimeout(()=>SS.speak(u),60)}else SS.speak(u)}
+function speak(k){
+ if(!vOn||!sOn)return;
+ if(!VZ[k])return falar(k);
+ let fb=false;const reserva=()=>{if(!fb){fb=true;falar(k)}}; // a reserva toca no máximo uma vez por fala
+ au=au||new Audio();au.onerror=reserva;au.src=VD+VZ[k];
+ const p=au.play();if(p)p.catch(e=>{if(!e||e.name!='AbortError')reserva()})}
 
 /* ===== Tela de configuração ===== */
 $('#cats').innerHTML=CATS.map((c,i)=>`<button data-c="${i}">${c[0]}</button>`).join('');
@@ -51,6 +61,7 @@ function start(){
  let deck,key;
  do{deck=shuffle(shuffle(Array.from({length:b-a},(_,i)=>a+i)).slice(0,n).flatMap(k=>[k,k]));key=deck.join()}while(key==prev&&n>1);
  prev=key;if(st)clearInterval(st.iv);
+ if(TV)[...new Set(deck)].forEach(k=>{if(VZ[k]){const a=new Audio();a.preload='auto';a.src=VD+VZ[k]}}); // pré-carrega as falas desta partida
  st={deck,n,els:[],open:[],lock:false,found:0,tries:0,t0:0,iv:0,over:false,sec:0,rv:0,saved:false};
  const g=$('#grid');
  g.innerHTML=deck.map((k,i)=>`<button class="card" id="c${i}" data-i="${i}" aria-label="Carta ${i+1} virada para baixo"><span class="in"><span class="f bk">?</span><span class="f fr">${svg(DR[k][1])}<b>${DR[k][0]}</b></span></span></button>`).join('');
@@ -91,7 +102,7 @@ function win(s){
  $('#nf').hidden=!!s.rv;$('#nm').value='';$('#ns').textContent=s.rv?'Partidas com REVELAR não entram no placar.':'';$('#win').hidden=false;$('#ng2').focus();FX.win();confetti();say('Parabéns! Você encontrou todos os pares.')}
 function confetti(){const c=['#2563EB','#0B7E82','#1D4263','#83B4FF','#68CBC2'];
  for(let i=0;i<50;i++){const d=document.createElement('i');d.className='cf';d.style.cssText=`left:${Math.random()*100}vw;background:${c[i%5]};animation-delay:${Math.random()*.8}s;animation-duration:${2+Math.random()*2}s`;document.body.appendChild(d);setTimeout(()=>d.remove(),5000)}}
-function menu(){if(st)clearInterval(st.iv);if(SS)SS.cancel();st=null;$('#win').hidden=true;$('#game').hidden=true;$('#setup').hidden=false;document.body.classList.remove('ing');cm();$$('.cf').forEach(x=>x.remove());upd()}
+function menu(){if(st)clearInterval(st.iv);parar();st=null;$('#win').hidden=true;$('#game').hidden=true;$('#setup').hidden=false;document.body.classList.remove('ing');cm();$$('.cf').forEach(x=>x.remove());upd()}
 $('#ng').onclick=$('#ng2').onclick=menu;$('#go').onclick=start;
 
 /* ===== Grade adaptativa: testa combinações de colunas × linhas e escolhe a de maior carta legível.
@@ -133,7 +144,7 @@ $('#nf').onsubmit=e=>{e.preventDefault();const s=st;if(!s||!s.over||s.saved||s.r
 function cm(){$('#tb').classList.remove('open');$('#mn').setAttribute('aria-expanded','false')}
 $('#tb').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(/^(pb|hp|pdf)$/.test(b.id))cm();
  if(b.id=='snd'){sOn=!sOn;b.setAttribute('aria-pressed',sOn);b.querySelector('.tx').textContent=sOn?'Som: sim':'Som: não'}
- else if(b.id=='vz'){vOn=!vOn;b.setAttribute('aria-pressed',vOn);b.querySelector('.tx').textContent=vOn?'Voz: sim':'Voz: não';if(!vOn&&SS)SS.cancel()}
+ else if(b.id=='vz'){vOn=!vOn;b.setAttribute('aria-pressed',vOn);b.querySelector('.tx').textContent=vOn?'Voz: sim':'Voz: não';if(!vOn)parar()}
  else if(b.id=='pdf'){openPdf()}
  else if(b.id=='pb'){$('#pl').hidden=false;showPl(st?st.n:n)}else $('#help').hidden=false};
 $('#mn').onclick=()=>$('#mn').setAttribute('aria-expanded',$('#tb').classList.toggle('open'));

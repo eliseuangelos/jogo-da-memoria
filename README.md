@@ -121,6 +121,9 @@ O jogo foi pensado para apoiar atividades de aprendizagem por meio da brincadeir
 jogo-da-memoria/
 ├── index.html                  # Somente HTML: header, tela inicial, tabuleiro, rodapé e janelas
 ├── README.md
+├── tools/
+│   ├── falas.json              # As 102 falas do jogo (id, categoria, texto)
+│   └── gerar-vozes.py          # Sintetiza/processa os áudios das vozes e gera o manifesto
 └── assets/
     ├── css/
     │   ├── main.css            # Ponto de entrada (importa os módulos, na ordem)
@@ -137,13 +140,38 @@ jogo-da-memoria/
     │   ├── export.js           # Cartas em PDF vetorial e ZIP de SVGs
     │   ├── game.js             # Regras, sons, voz, recordes, placar e menus
     │   └── theme.js            # Cor da barra do navegador e alternador Day/Night
+    ├── sounds/voz/             # Falas em MP3 (opcionais) e manifest.js que as lista
     ├── icons/                  # favicon, símbolo da marca e apple-touch-icon
     └── vendor/day-night/       # Componente DAY & NIGHT EXPERIENCE v1.3.0
 ```
 
-**Ordem dos scripts:** `day-night.js`, `drawings.js`, `export.js`, `game.js`, `theme.js` (todos com `defer`). `drawings.js` publica `window.Memoria` (`DR`, `CATS`, `svg`) e `export.js` acrescenta `openPdf`.
+**Ordem dos scripts:** `day-night.js`, `manifest.js` (vozes), `drawings.js`, `export.js`, `game.js`, `theme.js` (todos com `defer`). `drawings.js` publica `window.Memoria` (`DR`, `CATS`, `svg`) e `export.js` acrescenta `openPdf`.
 
 **Créditos:** ficam no rodapé (`#creditos`). Na tela de partida em telas compactas o rodapé é ocultado para dar espaço ao tabuleiro e reaparece ao voltar para a tela inicial.
+
+## Vozes
+
+Ao encontrar um par, o jogo fala o nome da figura, da letra ou do número, em duas camadas:
+
+1. **Áudios prontos (recomendado):** MP3 em `assets/sounds/voz/`, listados em `manifest.js`. A mesma voz toca em qualquer aparelho, devagar e com margens de silêncio.
+2. **Reserva:** sem áudio (ou se ele falhar), usa a voz do navegador em português do Brasil, em velocidade reduzida. A velocidade é a constante `RATE` em `assets/js/game.js` (1 = normal; hoje 0,7).
+
+### Gerar os áudios com voz neural (Kokoro, `pf_dora`)
+
+[Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) é um modelo neural aberto (pesos sob licença Apache-2.0) e `pf_dora` é a voz feminina em português do Brasil. É preciso Python (use 3.10 a 3.12 se a instalação falhar), `ffmpeg` e, se for solicitado, `espeak-ng`.
+
+```bash
+pip install kokoro soundfile
+python tools/gerar-vozes.py tudo                  # sintetiza e processa as 102 falas
+python tools/gerar-vozes.py tudo --repetir        # fala devagar, pausa e repete um pouco mais rápido
+python tools/gerar-vozes.py tudo --velocidade 0.65
+```
+
+Os áudios brutos ficam em `tools/brutos/` (podem ser apagados depois); os MP3 e o `manifest.js` são gravados em `assets/sounds/voz/`. Ouça antes de publicar e substitua qualquer fala de que não gostar.
+
+### Outra voz ou gravação humana
+
+Salve os áudios (WAV, MP3, M4A ou OGG) em `tools/brutos/` com o número da fala em `tools/falas.json` (`000.wav`, `056.mp3`...) e rode `python tools/gerar-vozes.py processar`. Serve para Amazon Polly, Azure ou uma gravação; confira os termos de uso do serviço escolhido.
 
 ## Privacidade e armazenamento
 
